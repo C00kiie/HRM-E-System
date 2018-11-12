@@ -10,21 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HRM_MVVM
+namespace HRM_MVVM.Views.UserView
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AdminView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminView : Window
     {
-        
-        public MainWindow()
+        public AdminView()
         {
-            var display = new Views.Sub_Views.AddUserView();
-            display.Show();
             InitializeComponent();
         }
     }
