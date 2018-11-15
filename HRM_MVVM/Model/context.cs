@@ -5,7 +5,7 @@ using MySql.Data.Entity;
 
 namespace HRM_MVVM.Model
 {
-    class HRM_DB : DbContext
+    public class HRM_DB : DbContext
     {
         public HRM_DB()
             : base("HRM_DB")
