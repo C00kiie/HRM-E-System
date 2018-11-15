@@ -17,12 +17,11 @@ namespace HRM_MVVM.ViewModels
             _context = context;
         }
 
-        public async Task<List<Tasks>> TasksByUser(int UserId)
+        public async Task<List<Employee_Tasks>> TasksByUser(int UserId)
         {
             return await Task.Run(() => _context.Tasks.Where(p => p.Id == UserId).ToListAsync());
         }
-
-        public async void TaskProgress(int TaskId, Tasks.Status status)
+        public async void TaskProgress(int TaskId, Employee_Tasks.Status status)
         {
             var resultsFirst = _context.Tasks.First(p => p.TaskId == TaskId);
             if (resultsFirst != null)
@@ -33,11 +32,10 @@ namespace HRM_MVVM.ViewModels
             await _context.SaveChangesAsync();
 
         }
-        // here the return type represents
-        public async void AddTask(int UserId, Tasks.Priority priority,
-            DateTime startTime, DateTime endTime, Tasks.Status status, string details)
+        public async void AddTask(int UserId, Employee_Tasks.Priority priority,
+            DateTime startTime, DateTime endTime, Employee_Tasks.Status status, string details)
         {
-            var Task = new Tasks()
+            var employeeTask = new Employee_Tasks()
             {
                 Id =  UserId,
                 Priority_ =  priority,
@@ -46,10 +44,9 @@ namespace HRM_MVVM.ViewModels
                 StartingPoint = startTime,
                 EndPoint =  endTime,
             };
-            _context.Tasks.Add(Task);
+            _context.Tasks.Add(employeeTask);
             await _context.SaveChangesAsync();
         }
-
         public async void RemoveTask(int TaskId)
         {
             var task = _context.Tasks.First(p => p.TaskId == TaskId);

@@ -1,16 +1,20 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace HRM_MVVM.Model
 {
     public class attendance
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int AttendanceId { get; set; }
         [Required]
-        public int Id { get; set; }
+        public int userId { get; set; }
         [Required]
         public DateTime Day { get; set; }
         [Required]
-        public string Lat { get; set; }
+        public double Lat { get; set; }
         [Required]
-        public string Long { get; set; }
+        public double Long { get; set; }
     }
 }

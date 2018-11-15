@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HRM_MVVM.Model
 {
@@ -8,13 +10,18 @@ namespace HRM_MVVM.Model
         public enum HStatus
         {
             Accepted,
-            Rejected
+            Rejected,
+            UnHandled
         }
-        // user id
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public int request_id { get; set; }
         [Required]
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
         [Required]
-        public DateTime RequestedDay { get; set; }
+        // requested day or days
+        public List<DateTime> RequestedDays { get; set; }
         [Required]
         // 
         public HStatus HStatus_ { get; set; }
@@ -23,7 +30,7 @@ namespace HRM_MVVM.Model
         // A manager has a request level of 2 which can be managed by admins
         // an admin can request holidays and accept it by himself
         // {considering that he is an eligible member that could be trusted} 
-        public int HolidayPermissionLevel { get; set; }
+        public Employee.Permission_ HolidayPermissionLevel { get; set; }
 
     }
 }

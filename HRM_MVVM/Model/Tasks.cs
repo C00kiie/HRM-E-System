@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HRM_MVVM.Model
 {
 
-    public class Tasks
+    public class Employee_Tasks
     {
         public enum Priority
         {

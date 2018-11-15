@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRM_MVVM", "HRM_MVVM\HRM_MVVM.csproj", "{FB38265C-B5AE-44DD-B0AE-1D27D8F93799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{5244B6F8-70C3-45C3-9EC9-91FF47D6858C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{831D77B3-4AD6-4831-AA05-75A8B456833D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{FB38265C-B5AE-44DD-B0AE-1D27D8F93799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB38265C-B5AE-44DD-B0AE-1D27D8F93799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB38265C-B5AE-44DD-B0AE-1D27D8F93799}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5244B6F8-70C3-45C3-9EC9-91FF47D6858C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5244B6F8-70C3-45C3-9EC9-91FF47D6858C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5244B6F8-70C3-45C3-9EC9-91FF47D6858C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5244B6F8-70C3-45C3-9EC9-91FF47D6858C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831D77B3-4AD6-4831-AA05-75A8B456833D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831D77B3-4AD6-4831-AA05-75A8B456833D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831D77B3-4AD6-4831-AA05-75A8B456833D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831D77B3-4AD6-4831-AA05-75A8B456833D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

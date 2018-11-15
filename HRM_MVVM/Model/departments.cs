@@ -12,6 +12,7 @@ namespace HRM_MVVM.Model
     public class Department
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int Department_id { get; set; }
         [Required]
         public int Manager_id { get; set; }
