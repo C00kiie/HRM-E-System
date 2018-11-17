@@ -1,0 +1,17 @@
+﻿<Window x:Class="HRM_MVVM.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="LoginView" Height="400.94" Width="622.368">
+    <Grid>
+        <Grid.Background>black</Grid.Background>
+        <TextBlock x:Name="UsernameLabel"  Background="white" TextAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="269,75,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.58,0.496"/>
+        <TextBox x:Name="Username"  TextAlignment="Center" HorizontalAlignment="Left" Height="28" Margin="135,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="374"/>
+        <TextBox x:Name="Password" Height="30"  Margin="128,203,110,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.092,0.392" />
+        <TextBlock TextAlignment="center" Background="white" x:Name="PasswordLabel" HorizontalAlignment="Left" Height="29" Margin="273,169,0,0" TextWrapping="Wrap" Text="password" VerticalAlignment="Top" Width="104"/>
+        <Button Content="Login" HorizontalAlignment="Left" Height="55" Margin="167,275,0,0" VerticalAlignment="Top" Width="286" Click="Button_Click"/>
+    </Grid>
+</Window>

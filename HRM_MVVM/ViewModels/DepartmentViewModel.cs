@@ -15,8 +15,8 @@ namespace HRM_MVVM.ViewModels
         {
             Department department = new Department()
             {
-                Manager_id = managerId,
-                Department_name = departmentName
+                ManagerId = managerId,
+                DepartmentName = departmentName
             };
             _context.Departments.Add(department);
             await _context.SaveChangesAsync();
@@ -27,14 +27,14 @@ namespace HRM_MVVM.ViewModels
             // unassigned_department is just an easy way of representing unemployed, and to-be
             // employed workers at x company
            
-            var departmentEmployees = await _context.Employees.Where(emp => emp.DepartmentId == departmentId).ToListAsync();
+            var departmentEmployees = await _context.EmployeeInfos.Where(emp => emp.DepartmentId == departmentId).ToListAsync();
             for (int i = 0; i < departmentEmployees.Count(); i++)
             {
                 // where 0 = null, 
                 departmentEmployees[i].DepartmentId = 0;
             }
             // #2 remove this department
-            var department = await _context.Departments.FirstOrDefaultAsync(p=> p.Department_id == departmentId);
+            var department = await _context.Departments.FirstOrDefaultAsync(p=> p.DepartmentId == departmentId);
             if (department != null)
             {
                 _context.Departments.Remove(department);
@@ -47,13 +47,13 @@ namespace HRM_MVVM.ViewModels
             var department = await _context.Departments.FindAsync(departmentId);
             if (department != null)
             {
-                department.Manager_id = managerId;
+                department.ManagerId = managerId;
                 await _context.SaveChangesAsync();
             }
         }
         public async void AssignEmployee(int employeeId, int departmentId)
         {
-            var emp = await _context.Employees.FirstOrDefaultAsync(p=>p.Id == employeeId);
+            var emp = await _context.EmployeeInfos.FirstOrDefaultAsync(p=>p.Id == employeeId);
             if (emp != null)
             {
                 emp.DepartmentId = departmentId;

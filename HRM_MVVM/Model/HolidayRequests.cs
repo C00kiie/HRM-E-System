@@ -16,7 +16,7 @@ namespace HRM_MVVM.Model
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int request_id { get; set; }
+        public int RequestId { get; set; }
         [Required]
         public int EmployeeId { get; set; }
         [Required]

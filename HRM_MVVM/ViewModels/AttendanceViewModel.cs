@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRM_MVVM.ViewModels
 {
-    public class AttendanceViewModel
+    public class AttendanceViewModel 
     {
         private readonly HRM_DB _context;
 
@@ -16,12 +16,12 @@ namespace HRM_MVVM.ViewModels
         {
             _context = context;
         }
-        public async void RegisterAttendance(int userId)
+        public async void RegisterAttendance(int EmployeeId)
         {
             GeoCoordinate coordinate = new GeoCoordinate();
-            var attendence = new attendance()
+            var attendence = new Attendance()
             {
-                userId = userId,
+                EmployeeId = EmployeeId,
                 Day = DateTime.Now,
                 Lat = coordinate.Altitude,
                 Long = coordinate.Longitude
@@ -31,9 +31,9 @@ namespace HRM_MVVM.ViewModels
 
         }
 
-        public async Task<List<attendance>> GetAttendanceHistory(int userId)
+        public async Task<List<Attendance>> GetAttendanceHistory(int EmployeeId)
         {
-            return await Task.Run(() => _context.Attendances.Where(p => p.userId == userId).ToListAsync());
+            return await Task.Run(() => _context.Attendances.Where(p => p.EmployeeId == EmployeeId).ToListAsync());
         }
 
 

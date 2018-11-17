@@ -3,9 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HRM_MVVM.Model
 {
-    public class activity
+    public class Activity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ActivityId { get; set; }
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }

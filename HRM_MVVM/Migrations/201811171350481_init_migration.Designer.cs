@@ -7,13 +7,13 @@ namespace HRM_MVVM.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class init_migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init_migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811121503227_init"; }
+            get { return "201811171350481_init_migration"; }
         }
         
         string IMigrationMetadata.Source

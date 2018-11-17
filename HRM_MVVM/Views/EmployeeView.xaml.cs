@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HRM_MVVM.Views.Sub_Views
+namespace HRM_MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for Tasks.xaml
+    /// Interaction logic for EmployeeView.xaml
     /// </summary>
-    public partial class Tasks : Window
+    public partial class EmployeeView : Window
     {
-        public Tasks()
+        public EmployeeView()
         {
             InitializeComponent();
         }

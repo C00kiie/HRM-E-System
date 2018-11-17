@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HRM_MVVM.Model
 {
-    public class attendance
+    public class Attendance
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AttendanceId { get; set; }
         [Required]
-        public int userId { get; set; }
+        public int EmployeeId { get; set; }
         [Required]
         public DateTime Day { get; set; }
         [Required]

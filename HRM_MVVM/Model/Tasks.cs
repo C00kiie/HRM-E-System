@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace HRM_MVVM.Model
 {
 
-    public class Employee_Tasks
+    public class Employee_Tasks 
     {
         public enum Priority
         {
@@ -36,5 +39,6 @@ namespace HRM_MVVM.Model
         public  Status status_ { get; set; }
         [Required]
         public Priority Priority_ { get; set; }
+
     }
 }

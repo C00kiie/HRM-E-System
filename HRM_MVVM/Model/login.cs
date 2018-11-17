@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HRM_MVVM.Model
 {
-    public class Department
+    public class login
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int DepartmentId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public int ManagerId { get; set; }
+        public string Email { get; set; }
         [Required]
-        public string DepartmentName{ get; set; }
+        public string Password { get; set; }
+        [Required]
+        public int IsActivated { get; set; }
     }
 }

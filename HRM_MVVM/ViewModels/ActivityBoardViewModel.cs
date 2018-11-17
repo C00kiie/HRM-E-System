@@ -18,7 +18,7 @@ namespace HRM_MVVM.ViewModels
 
         public async void AddActivity(string title, string content)
         {
-            var activity = new activity()
+            var activity = new Activity()
             {
                 Title = title,
                 Content = content
@@ -35,15 +35,15 @@ namespace HRM_MVVM.ViewModels
                 _context.Activities.Remove(activity);
             }
         }
-        public async Task<List<activity>> GetActivities()
+        public async Task<List<Activity>> GetActivities()
         {
             var activities =  await _context.Activities.ToListAsync();
             return activities;
         }
 
-        public async Task<List<activity>> GetActivityByUser(int userId)
+        public async Task<List<Activity>> GetActivityByUser(int userId)
         {
-            var ActivitiesList = await _context.Activities.Where(p=>p.Id == userId).ToListAsync();
+            var ActivitiesList = await _context.Activities.Where(p=>p.ActivityId == userId).ToListAsync();
             return ActivitiesList;
         }
     }

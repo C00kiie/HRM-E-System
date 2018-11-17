@@ -31,7 +31,7 @@ namespace HRM_MVVM.ViewModels
         }
         public async void RequestHandling(int requestId, HolidayRequests.HStatus status)
         {
-            var request = await _context.HolidayRequests.FirstOrDefaultAsync(p => p.request_id == requestId);
+            var request = await _context.HolidayRequests.FirstOrDefaultAsync(p => p.RequestId == requestId);
             if (request != null)
             {
                 request.HStatus_ = status;
