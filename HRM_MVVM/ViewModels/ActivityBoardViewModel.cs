@@ -10,7 +10,7 @@ namespace HRM_MVVM.ViewModels
     public class ActivityBoardViewModel
     {
 
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
         public ActivityBoardViewModel(HRM_DB context)
         {
             _context = context;

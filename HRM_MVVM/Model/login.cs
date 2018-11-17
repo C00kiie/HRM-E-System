@@ -10,7 +10,7 @@ namespace HRM_MVVM.Model
 {
     public class login
     {
-        [Key]
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Email { get; set; }

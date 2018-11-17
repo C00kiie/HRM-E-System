@@ -10,7 +10,7 @@ namespace HRM_MVVM.ViewModels
 {
     public class EmployeeInfoViewModel
     {
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
 
         public EmployeeInfoViewModel(HRM_DB context)
         {

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HRM_MVVM.Model;
 using HRM_MVVM.ViewModels;
 
 namespace HRM_MVVM.Views
@@ -29,12 +30,16 @@ namespace HRM_MVVM.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var state = _vm.Login(Username.Text, Password.Text);
-            if (state.Result == true)
+            this.Username.Text = "dmcness1@shareasale.com";
+            this.Password.Text = "1ey0lFoMgg";
+            var state =  _vm.Login(Username.Text, Password.Text);
+            if (state == true)
             {
-                MessageBox.Show("Existent");
+                var currentUser = _vm._context.Logins.First(p => p.Email == Username.Text);
+                var employeeView = new EmployeeView(new ViewModels.EmployeeViewModel(_vm._context), currentUser);
+                employeeView.Show();
             }
-            else if (state.Result == false)
+            else if (state == false)
             {
                 MessageBox.Show("The account has been deactivated");
             }

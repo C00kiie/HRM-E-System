@@ -10,7 +10,7 @@ namespace HRM_MVVM.ViewModels
 {
     public class ViewEmployeesViewModel
     {
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
 
         public ViewEmployeesViewModel(HRM_DB context)
         {
@@ -59,7 +59,10 @@ namespace HRM_MVVM.ViewModels
 
         }
 
-
+        public  List<EmployeeInfo> GetUsersInfo()
+        {
+            return  _context.EmployeeInfos.ToList();
+        }
         public async void RemoveEmployee(int employeeId)
         {
             var emp = await _context.Employees.FindAsync(employeeId);

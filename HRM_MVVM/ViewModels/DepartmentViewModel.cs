@@ -5,7 +5,7 @@ namespace HRM_MVVM.ViewModels
 {
     public class DepartmentViewModel
     {
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
 
         public DepartmentViewModel(HRM_DB context)
         {

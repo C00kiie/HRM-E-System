@@ -10,7 +10,7 @@ namespace HRM_MVVM.ViewModels
 {
     public class AttendanceViewModel 
     {
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
 
         public AttendanceViewModel( HRM_DB context)
         {

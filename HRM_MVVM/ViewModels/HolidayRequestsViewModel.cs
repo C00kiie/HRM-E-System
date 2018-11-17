@@ -10,7 +10,7 @@ namespace HRM_MVVM.ViewModels
 {
     public class HolidayRequestsViewModel
     {
-        private readonly HRM_DB _context;
+        public readonly HRM_DB _context;
 
         public HolidayRequestsViewModel(HRM_DB context)
         {
