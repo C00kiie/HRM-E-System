@@ -29,7 +29,7 @@ namespace HRM_MVVM.Views
         private void init()
         {
             DataContext = _vm;
-            var permissions = _vm._context.Employees.First(temp => temp.Id == _currentUser.Id);
+            var permissions = _vm._context.Employees.First(temp => temp.Id == _currentUser.LoginId);
             this._permission = permissions.Permission;
         }
 

@@ -22,7 +22,9 @@ namespace HRM_MVVM.Model
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public Employee.Permission_ Permission { get; set; }
+
+        [Required] public virtual login Login { get; set; }
+        [Required] public virtual EmployeeInfo EmployeeInfo { get; set; }
+        [Required] public Employee.Permission_ Permission { get; set; }
     }
 }

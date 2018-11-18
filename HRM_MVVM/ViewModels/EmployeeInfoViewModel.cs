@@ -33,7 +33,7 @@ namespace HRM_MVVM.ViewModels
 
         public async Task<EmployeeInfo> Employee_info(int userId)
         {
-            return await _context.EmployeeInfos.FirstOrDefaultAsync(p => p.Id == userId);
+            return await _context.EmployeeInfos.FirstOrDefaultAsync(p => p.EmployeeInfoId == userId);
         }
 
 

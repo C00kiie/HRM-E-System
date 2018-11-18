@@ -3,7 +3,7 @@ namespace HRM_MVVM.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init_migration : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -44,14 +44,16 @@ namespace HRM_MVVM.Migrations
                 "dbo.EmployeeInfoes",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
+                        EmployeeInfoId = c.Int(nullable: false),
+                        Name = c.String(),
                         Birthdate = c.DateTime(nullable: false),
                         Experience = c.Int(nullable: false),
                         JoinedSince = c.DateTime(nullable: false),
                         DepartmentId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.EmployeeInfoId)
+                .ForeignKey("dbo.Employees", t => t.EmployeeInfoId)
+                .Index(t => t.EmployeeInfoId);
             
             CreateTable(
                 "dbo.Employees",
@@ -63,6 +65,19 @@ namespace HRM_MVVM.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.logins",
+                c => new
+                    {
+                        LoginId = c.Int(nullable: false),
+                        Email = c.String(nullable: false),
+                        Password = c.String(nullable: false),
+                        IsActivated = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.LoginId)
+                .ForeignKey("dbo.Employees", t => t.LoginId)
+                .Index(t => t.LoginId);
+            
+            CreateTable(
                 "dbo.HolidayRequests",
                 c => new
                     {
@@ -72,17 +87,6 @@ namespace HRM_MVVM.Migrations
                         HolidayPermissionLevel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.RequestId);
-            
-            CreateTable(
-                "dbo.logins",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Email = c.String(nullable: false),
-                        Password = c.String(nullable: false),
-                        IsActivated = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Employee_Tasks",
@@ -102,9 +106,13 @@ namespace HRM_MVVM.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.EmployeeInfoes", "EmployeeInfoId", "dbo.Employees");
+            DropForeignKey("dbo.logins", "LoginId", "dbo.Employees");
+            DropIndex("dbo.logins", new[] { "LoginId" });
+            DropIndex("dbo.EmployeeInfoes", new[] { "EmployeeInfoId" });
             DropTable("dbo.Employee_Tasks");
-            DropTable("dbo.logins");
             DropTable("dbo.HolidayRequests");
+            DropTable("dbo.logins");
             DropTable("dbo.Employees");
             DropTable("dbo.EmployeeInfoes");
             DropTable("dbo.Departments");

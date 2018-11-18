@@ -53,7 +53,7 @@ namespace HRM_MVVM.ViewModels
         }
         public async void AssignEmployee(int employeeId, int departmentId)
         {
-            var emp = await _context.EmployeeInfos.FirstOrDefaultAsync(p=>p.Id == employeeId);
+            var emp = await _context.EmployeeInfos.FirstOrDefaultAsync(p=>p.EmployeeInfoId == employeeId);
             if (emp != null)
             {
                 emp.DepartmentId = departmentId;

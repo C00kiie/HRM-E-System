@@ -20,43 +20,35 @@ namespace HRM_MVVM.ViewModels
             string name,
             DateTime birthDateTime,
             DateTime joinedSinceDateTime,
-            string Password,
+            string password,
             string email,
             Employee.Experience_ experience,
             Employee.Permission_ permission,
-            int departmentId,
-            int isActivated)
+            int isActivated,
+            int departmentId = 0
+            )
 
         {
-            var emp = new Employee()
-            {
-                Permission = permission
-            };
-            int maxId = Int32.Parse(_context.Employees.SqlQuery("select max(Id) from Employees").ToString()) + 1;
-
             var empInfo = new EmployeeInfo()
             {
-                Id =  maxId,
-                Name = name,
-                Experience = experience,
                 Birthdate = birthDateTime,
+                Experience = experience,
+                JoinedSince = joinedSinceDateTime,
+                Name =  name,
                 DepartmentId = departmentId,
-                JoinedSince =  joinedSinceDateTime
             };
-
             var empLogin = new login()
             {
-                Id =  maxId,
                 Email = email,
-                Password = Functions.password.ComputeSha256Hash(Password),
-                IsActivated = 1
+                IsActivated = isActivated,
+                Password = password
             };
-            
-            _context.Employees.Add(emp);
-            _context.Logins.Add(empLogin);
-            _context.EmployeeInfos.Add(empInfo);
-            await _context.SaveChangesAsync();
-
+            var emp = new Employee()
+            {
+                EmployeeInfo = empInfo,
+                Login = empLogin,
+                Permission = permission
+            };
         }
 
         public  List<EmployeeInfo> GetUsersInfo()
@@ -79,7 +71,7 @@ namespace HRM_MVVM.ViewModels
         }
         public async void DeactivateUser(int userId)
         {
-            var user = _context.Logins.FirstOrDefaultAsync(p => p.Id == userId);
+            var user = _context.Logins.FirstOrDefaultAsync(p => p.LoginId == userId);
             if (user != null)
             {
                 user.Result.IsActivated = 0;
@@ -88,7 +80,7 @@ namespace HRM_MVVM.ViewModels
         }
         public async void ActivateUser(int userId)
         {
-            var user = _context.Logins.FirstOrDefaultAsync(p => p.Id == userId);
+            var user = _context.Logins.FirstOrDefaultAsync(p => p.LoginId == userId);
             if (user != null)
             {
                 user.Result.IsActivated = 1;

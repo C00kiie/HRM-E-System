@@ -10,8 +10,10 @@ namespace HRM_MVVM.Model
 {
     public class EmployeeInfo
     {
-        public int Id { get; set; }
-        [Required]
+        [ForeignKey("Employee")]
+        public int EmployeeInfoId { get; set; }
+
+        
         public string Name { get; set; }
         [Required]
         public DateTime Birthdate { get; set; }
@@ -21,5 +23,6 @@ namespace HRM_MVVM.Model
         public DateTime JoinedSince { get; set; }
         // not required since it'd be nullable
         public int DepartmentId { get; set; }
+        [Required] public virtual Employee Employee { get; set; }
     }
 }
