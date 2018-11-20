@@ -35,9 +35,7 @@ namespace HRM_MVVM.Views
             var state =  _vm.Login(Username.Text, Password.Text);
             if (state == true)
             {
-                var currentUser = _vm._context.Logins.First(p => p.Email == Username.Text);
-                var employeeView = new EmployeeView(new ViewModels.EmployeeViewModel(_vm._context), currentUser);
-                employeeView.Show();
+               
             }
             else if (state == false)
             {

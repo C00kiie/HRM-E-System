@@ -9,7 +9,7 @@ namespace HRM_MVVM.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(HRM_MVVM.Model.HRM_DB context)

@@ -23,21 +23,21 @@ namespace HRM_MVVM.ViewModels
             string password,
             string email,
             Employee.Experience_ experience,
-            Employee.Permission_ permission,
+            List<Employee.Permissions> perms,
             int isActivated,
             int departmentId = 0
             )
 
         {
+            var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
             var empInfo = new EmployeeInfo()
             {
                 Birthdate = birthDateTime,
                 Experience = experience,
                 JoinedSince = joinedSinceDateTime,
                 Name =  name,
-                DepartmentId = departmentId,
             };
-            var empLogin = new login()
+            var empLogin = new EmployeeLogin()
             {
                 Email = email,
                 IsActivated = isActivated,
@@ -46,9 +46,16 @@ namespace HRM_MVVM.ViewModels
             var emp = new Employee()
             {
                 EmployeeInfo = empInfo,
-                Login = empLogin,
-                Permission = permission
+                EmployeeLogin = empLogin,
+                Permission = perms,
+                Department = department
             };
+
+            // saving changes
+            _context.Employees.Add(emp);
+            _context.EmployeeInfos.Add(empInfo);
+            _context.Logins.Add(empLogin);
+            await _context.SaveChangesAsync();
         }
 
         public  List<EmployeeInfo> GetUsersInfo()
@@ -61,7 +68,7 @@ namespace HRM_MVVM.ViewModels
             var empLogin = await _context.Logins.FindAsync(employeeId);
             var empInfo = await _context.EmployeeInfos.FindAsync(employeeId);
 
-            if (emp != null && empLogin != null && empInfo!=null)
+            if (emp != null && empLogin != null && empInfo != null)
             {
                 _context.Employees.Remove(emp);
                 _context.Logins.Remove(empLogin);

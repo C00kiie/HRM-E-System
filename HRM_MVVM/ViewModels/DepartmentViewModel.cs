@@ -15,9 +15,10 @@ namespace HRM_MVVM.ViewModels
         {
             Department department = new Department()
             {
-                ManagerId = managerId,
                 DepartmentName = departmentName
             };
+            var manager = await _context.Employees.FirstOrDefaultAsync(p => p.Id == managerId);
+            department.Managers.Add(manager);
             _context.Departments.Add(department);
             await _context.SaveChangesAsync();
         }
@@ -27,11 +28,11 @@ namespace HRM_MVVM.ViewModels
             // unassigned_department is just an easy way of representing unemployed, and to-be
             // employed workers at x company
            
-            var departmentEmployees = await _context.EmployeeInfos.Where(emp => emp.DepartmentId == departmentId).ToListAsync();
+            var departmentEmployees = await _context.Employees.Where(emp => emp.Department.DepartmentId == departmentId).ToListAsync();
             for (int i = 0; i < departmentEmployees.Count(); i++)
             {
                 // where 0 = null, 
-                departmentEmployees[i].DepartmentId = 0;
+                departmentEmployees[i].Department.DepartmentId = 0;
             }
             // #2 remove this department
             var department = await _context.Departments.FirstOrDefaultAsync(p=> p.DepartmentId == departmentId);
@@ -42,21 +43,23 @@ namespace HRM_MVVM.ViewModels
             }
 
         }
-        public async void ChangeDepartmentManager(int departmentId, int managerId)
+        public async void AddDepartmentManager(int departmentId, int managerId)
         {
-            var department = await _context.Departments.FindAsync(departmentId);
-            if (department != null)
+            var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
+            var manager = await  _context.Employees.FirstOrDefaultAsync(p => p.Id == managerId);
+            if (departmentId != null && manager != null)
             {
-                department.ManagerId = managerId;
+                department.Managers.Add(manager);
                 await _context.SaveChangesAsync();
             }
         }
         public async void AssignEmployee(int employeeId, int departmentId)
         {
-            var emp = await _context.EmployeeInfos.FirstOrDefaultAsync(p=>p.EmployeeInfoId == employeeId);
-            if (emp != null)
+            var emp = await _context.Employees.FirstOrDefaultAsync(p=>p.Id== employeeId);
+            var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
+            if (emp != null & department != null)
             {
-                emp.DepartmentId = departmentId;
+                department.Employees.Add(emp);
                 await _context.SaveChangesAsync();
             }
         }

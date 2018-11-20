@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace HRM_MVVM.Model
 {
@@ -7,11 +8,13 @@ namespace HRM_MVVM.Model
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ActivityId { get; set; }
-        [Required]
-        public int Id { get; set; }
+        [ForeignKey("Employee")]
+        [Required] public int UserId;
         [Required]
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
+
+        public virtual Employee Employee { get; set; }
     }
 }

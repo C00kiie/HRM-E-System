@@ -17,39 +17,39 @@ namespace HRM_MVVM.ViewModels
             _context = context;
         }
 
-        public async Task<List<Employee_Tasks>> TasksByUser(int UserId)
+        public async Task<List<EmployeeTasks>> TasksByUser(int EmployeeId)
         {
-            return await Task.Run(() => _context.Tasks.Where(p => p.Id == UserId).ToListAsync());
+            return await Task.Run(() => _context.Tasks.Where(p => p.EmployeeId == EmployeeId).ToListAsync());
         }
-        public async void TaskProgress(int TaskId, Employee_Tasks.Status status)
+        public async void TaskProgress(int TaskId, EmployeeTasks.Status status)
         {
             var resultsFirst = _context.Tasks.First(p => p.TaskId == TaskId);
             if (resultsFirst != null)
             {
-                resultsFirst.status_ = status;
+                resultsFirst.Status_ = status;
             }
 
             await _context.SaveChangesAsync();
 
         }
-        public async void AddTask(int UserId, Employee_Tasks.Priority priority,
-            DateTime startTime, DateTime endTime, Employee_Tasks.Status status, string details)
+        public async void AddTask(int UserId, EmployeeTasks.Priority priority,
+            DateTime startTime, DateTime endTime, EmployeeTasks.Status status, string details)
         {
-            var employeeTask = new Employee_Tasks()
+            var employeeTask = new EmployeeTasks()
             {
-                Id =  UserId,
-                Priority_ =  priority,
-                status_ =  status,
-                details =  details,
+                EmployeeId =  UserId,
+                Priority_  =  priority,
+                Status_    =  status,
+                Details    =  details,
                 StartingPoint = startTime,
                 EndPoint =  endTime,
             };
             _context.Tasks.Add(employeeTask);
             await _context.SaveChangesAsync();
         }
-        public async void RemoveTask(int TaskId)
+        public async void RemoveTask(int taskId)
         {
-            var task = _context.Tasks.First(p => p.TaskId == TaskId);
+            var task = _context.Tasks.First(p => p.TaskId == taskId);
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
         }

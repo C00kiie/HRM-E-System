@@ -18,23 +18,27 @@ namespace HRM_MVVM.ViewModels
         }
         public async void RequestHoliday(Employee employee, List<DateTime> offDays)
         {
+           
             HolidayRequests request = new HolidayRequests()
             {
                 EmployeeId = employee.Id,
                 RequestedDays =  offDays,
-                // by default this value is 0 aka rejected
-                HStatus_ =  HolidayRequests.HStatus.UnHandled,
-                HolidayPermissionLevel = employee.Permission
+                // by default this value is unhandled
+                ReqStatus =  HolidayRequests.RequestStatus.UnHandled,
+                
+                // this param is gonna be available once we add permissions like
+                // CanTakeHoliday perm and CanApproveHoliday perm.
+               //HolidayPermissionsLevel= employee.Permission.
             };
             _context.HolidayRequests.Add(request);
             await _context.SaveChangesAsync();
         }
-        public async void RequestHandling(int requestId, HolidayRequests.HStatus status)
+        public async void RequestHandling(int requestId, HolidayRequests.RequestStatus status)
         {
             var request = await _context.HolidayRequests.FirstOrDefaultAsync(p => p.RequestId == requestId);
             if (request != null)
             {
-                request.HStatus_ = status;
+                request.ReqStatus = status;
                 await _context.SaveChangesAsync();
             }
         }

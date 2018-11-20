@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 namespace HRM_MVVM.Model
 {
 
-    public class Employee_Tasks 
+    public class EmployeeTasks 
     {
         public enum Priority
         {
@@ -26,19 +26,20 @@ namespace HRM_MVVM.Model
             UnderProgress
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int TaskId { get; set; }
-        [Required]
-        public int Id { get; set; }
         [Required]
         public DateTime StartingPoint { get; set; }
         [Required]
         public DateTime EndPoint { get; set; }
         [Required]
-        public string details { get; set; }
+        public string Details { get; set; }
         [Required]
-        public  Status status_ { get; set; }
+        public  Status Status_ { get; set; }
         [Required]
         public Priority Priority_ { get; set; }
-
+        [ForeignKey("Employee")]
+        public int EmployeeId { get; internal set; }
+        public  virtual  Employee Employee { get; set; }
     }
 }

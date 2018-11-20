@@ -43,7 +43,7 @@ namespace HRM_MVVM.ViewModels
 
         public async Task<List<Activity>> GetActivityByUser(int userId)
         {
-            var ActivitiesList = await _context.Activities.Where(p=>p.ActivityId == userId).ToListAsync();
+            var ActivitiesList = await _context.Activities.Where(p=>p.UserId== userId).ToListAsync();
             return ActivitiesList;
         }
     }

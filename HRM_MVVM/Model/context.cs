@@ -19,10 +19,10 @@ namespace HRM_MVVM.Model
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Activity> Activities { get; set; }
-        public DbSet<login> Logins { get; set; }
+        public DbSet<EmployeeLogin> Logins { get; set; }
         public DbSet<EmployeeInfo> EmployeeInfos{ get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Employee_Tasks> Tasks { get; set; }
+        public DbSet<EmployeeTasks> Tasks { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<HolidayRequests> HolidayRequests{ get; set; }

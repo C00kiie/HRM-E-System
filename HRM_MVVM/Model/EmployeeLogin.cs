@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace HRM_MVVM.Model
 {
-    public class login
+    public class EmployeeLogin
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         [ForeignKey("Employee")]
         public int LoginId { get; set; }
         [Required]
@@ -18,7 +20,8 @@ namespace HRM_MVVM.Model
         public string Password { get; set; }
         [Required]
         public int IsActivated { get; set; }
-        [Required]
+
         public virtual Employee Employee { get; set; }
+        
     }
 }

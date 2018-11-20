@@ -9,6 +9,7 @@ namespace HRM_MVVM.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AttendanceId { get; set; }
         [Required]
+        [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
         [Required]
         public DateTime Day { get; set; }
@@ -16,5 +17,7 @@ namespace HRM_MVVM.Model
         public double Lat { get; set; }
         [Required]
         public double Long { get; set; }
+
+        public virtual Employee Employee { get; set; }
     }
 }

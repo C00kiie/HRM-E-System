@@ -13,7 +13,7 @@ namespace HRM_MVVM.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201811181201190_init"; }
+            get { return "201811201416081_init"; }
         }
         
         string IMigrationMetadata.Source

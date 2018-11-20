@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Functions
 {
-    public class password
+    public class Password
     {
         public static string ComputeSha256Hash(string rawData)
         {
