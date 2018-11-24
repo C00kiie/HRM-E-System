@@ -20,6 +20,5 @@ namespace HRM_MVVM.Model
         [Required]
         public int IsActivated { get; set; }
         public Employee Employee { get; set; }
-        
     }
 }

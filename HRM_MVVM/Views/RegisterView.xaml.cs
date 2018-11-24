@@ -64,18 +64,19 @@ namespace HRM_MVVM.Views
             // I am sorry Allah for this potato UI code ;-;
             List<Employee.Permissions> perms = new List<Employee.Permissions>();
             bool adminCheck = permAdmin.IsChecked == true;
-            bool HRCheck = permHR.IsChecked == true;
-            bool EmployeeCheck = permEmployee.IsChecked == true;
-            if (EmployeeCheck)
+            bool hrcheck = permHR.IsChecked == true;
+            bool employeeCheck = permEmployee.IsChecked == true;
+            if (employeeCheck)
             {
                 perms.Add(Employee.Permissions.Employee);
             }else if(adminCheck)
             {
                 perms.Add(Employee.Permissions.Admin);
-            }else if (HRCheck)
+            }else if (hrcheck)
             {
                 perms.Add(Employee.Permissions.HR);
             }
+            
             // experience
             string selectedExperience = experienceDropList.SelectedItem.ToString();
             Employee.Experience_ experience = (Employee.Experience_) Enum.Parse(typeof(Employee.Experience_),selectedExperience);

@@ -20,8 +20,6 @@ namespace HRM_MVVM.Model
             Trainee, 
             Intern
         }
-
-
         public enum MemberType
         {
             Manager,
