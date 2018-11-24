@@ -20,15 +20,24 @@ namespace HRM_MVVM.Model
             Trainee, 
             Intern
         }
+
+
+        public enum MemberType
+        {
+            Manager,
+            Employee
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required] public virtual EmployeeLogin EmployeeLogin { get; set; }
-        [Required] public virtual EmployeeInfo EmployeeInfo { get; set; }
+        public EmployeeLogin EmployeeLogin { get; set; }
+        public EmployeeInfo EmployeeInfo { get; set; }
+
+        public Department Department { get; set; }
         // not required
-        [Required] public virtual ICollection<HolidayRequests> HolidayRequests { get; set; }
-        public  Department Department { get; set; }
-        [Required] public virtual ICollection<EmployeeTasks> Tasks { get; set; }
+        public MemberType type { get; set; }
+        public virtual ICollection<HolidayRequests> HolidayRequests { get; set; }
+        public virtual ICollection<EmployeeTasks> Tasks { get; set; }
         [Required] public List<Permissions> Permission { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace HRM_MVVM.ViewModels
     {
         public readonly HRM_DB _context;
 
-        public  bool ViewUsersVisBool { get; set;}
         public EmployeeViewModel(HRM_DB context)
         {
             _context = context;

@@ -25,27 +25,11 @@ namespace HRM_MVVM.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        type = c.Int(nullable: false),
                         Department_DepartmentId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Departments", t => t.Department_DepartmentId)
-                .Index(t => t.Department_DepartmentId);
-            
-            CreateTable(
-                "dbo.EmployeeInfoes",
-                c => new
-                    {
-                        EmployeeInfoId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Birthdate = c.DateTime(nullable: false),
-                        Experience = c.Int(nullable: false),
-                        JoinedSince = c.DateTime(nullable: false),
-                        Department_DepartmentId = c.Int(),
-                    })
-                .PrimaryKey(t => t.EmployeeInfoId)
-                .ForeignKey("dbo.Departments", t => t.Department_DepartmentId)
-                .ForeignKey("dbo.Employees", t => t.EmployeeInfoId)
-                .Index(t => t.EmployeeInfoId)
                 .Index(t => t.Department_DepartmentId);
             
             CreateTable(
@@ -58,10 +42,24 @@ namespace HRM_MVVM.Migrations
                 .PrimaryKey(t => t.DepartmentId);
             
             CreateTable(
+                "dbo.EmployeeInfoes",
+                c => new
+                    {
+                        EmployeeInfoId = c.Int(nullable: false),
+                        Name = c.String(nullable: false),
+                        Birthdate = c.DateTime(nullable: false),
+                        Experience = c.Int(nullable: false),
+                        JoinedSince = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.EmployeeInfoId)
+                .ForeignKey("dbo.Employees", t => t.EmployeeInfoId)
+                .Index(t => t.EmployeeInfoId);
+            
+            CreateTable(
                 "dbo.EmployeeLogins",
                 c => new
                     {
-                        LoginId = c.Int(nullable: false, identity: true),
+                        LoginId = c.Int(nullable: false),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
                         IsActivated = c.Int(nullable: false),
@@ -123,13 +121,11 @@ namespace HRM_MVVM.Migrations
             DropForeignKey("dbo.HolidayRequests", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.EmployeeLogins", "LoginId", "dbo.Employees");
             DropForeignKey("dbo.EmployeeInfoes", "EmployeeInfoId", "dbo.Employees");
-            DropForeignKey("dbo.EmployeeInfoes", "Department_DepartmentId", "dbo.Departments");
             DropForeignKey("dbo.Employees", "Department_DepartmentId", "dbo.Departments");
             DropIndex("dbo.Attendances", new[] { "EmployeeId" });
             DropIndex("dbo.EmployeeTasks", new[] { "EmployeeId" });
             DropIndex("dbo.HolidayRequests", new[] { "EmployeeId" });
             DropIndex("dbo.EmployeeLogins", new[] { "LoginId" });
-            DropIndex("dbo.EmployeeInfoes", new[] { "Department_DepartmentId" });
             DropIndex("dbo.EmployeeInfoes", new[] { "EmployeeInfoId" });
             DropIndex("dbo.Employees", new[] { "Department_DepartmentId" });
             DropIndex("dbo.Activities", new[] { "Employee_Id" });
@@ -137,8 +133,8 @@ namespace HRM_MVVM.Migrations
             DropTable("dbo.EmployeeTasks");
             DropTable("dbo.HolidayRequests");
             DropTable("dbo.EmployeeLogins");
-            DropTable("dbo.Departments");
             DropTable("dbo.EmployeeInfoes");
+            DropTable("dbo.Departments");
             DropTable("dbo.Employees");
             DropTable("dbo.Activities");
         }

@@ -33,15 +33,18 @@ namespace HRM_MVVM.Views
             this.Username.Text = "dmcness1@shareasale.com";
             this.Password.Text = "1ey0lFoMgg";
             var state =  _vm.Login(Username.Text, Password.Text);
-            if (state == true)
+            if (state  == LoginViewModel.LoginCodes.SuccessfulAndActivated)
             {
                
             }
-            else if (state == false)
+            else if (state == LoginViewModel.LoginCodes.SuccessfulAndNotActivated)
             {
                 MessageBox.Show("The account has been deactivated");
             }
-            else
+            else if (state == LoginViewModel.LoginCodes.NotFound)
+            {
+                
+            } else if(state == LoginViewModel.LoginCodes.NotFound)
             {
                 MessageBox.Show("no such user");
             }

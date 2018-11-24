@@ -21,12 +21,15 @@ namespace HRM_MVVM.ViewModels
             DateTime birthDateTime
             )
         {
-            var emp = await _context.EmployeeInfos.FindAsync(userId);
-            // updating all fields belonging 
-            emp.Name = name;
-            emp.Birthdate = birthDateTime;
-            // save changes
-            await _context.SaveChangesAsync();
+            var emp = await _context.EmployeeInfos.FirstOrDefaultAsync(p => p.EmployeeInfoId == userId);
+            if (emp != null)
+            {
+                // updating all fields 
+                emp.Name = name;
+                emp.Birthdate = birthDateTime;
+                // save changes
+                await _context.SaveChangesAsync();
+            }
 
         }
 

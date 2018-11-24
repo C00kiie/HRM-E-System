@@ -10,7 +10,6 @@ namespace HRM_MVVM.Model
 {
     public class EmployeeInfo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [ForeignKey("Employee")]
         public int  EmployeeInfoId { get; set; }
@@ -22,7 +21,6 @@ namespace HRM_MVVM.Model
         public Employee.Experience_ Experience { get; set; }
         [Required]
         public DateTime JoinedSince { get; set; }
-        // not required since it'd be nullable {if not included}
-        [Required] public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace HRM_MVVM.Model
 {
     public class EmployeeLogin
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [ForeignKey("Employee")]
         public int LoginId { get; set; }
@@ -20,8 +19,7 @@ namespace HRM_MVVM.Model
         public string Password { get; set; }
         [Required]
         public int IsActivated { get; set; }
-
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
         
     }
 }

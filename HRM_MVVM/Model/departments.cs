@@ -9,8 +9,7 @@ namespace HRM_MVVM.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int DepartmentId { get; set; }
-        public virtual ICollection<Employee> Managers { get; set; }
-        public  virtual  ICollection<Employee> Employees { get; set;}
+        public virtual ICollection<Employee> Members { get; set; }
         [Required]
         public string DepartmentName{ get; set; }
 

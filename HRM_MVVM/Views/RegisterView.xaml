@@ -1,0 +1,39 @@
+﻿<Window x:Class="HRM_MVVM.Views.RegisterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="RegisterView" Height="450" Width="800">
+    <Grid Margin="4,2,-4,-1">
+        <Label Content="name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="6,32,0,0"/>
+        <Label Content="email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="648,20,0,0"/>
+        <TextBox x:Name="email" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" Margin="554,52,0,0"/>
+        <Label Content="password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="651,112,0,0" RenderTransformOrigin="-0.508,0.577"/>
+        <TextBox  x:Name="password" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="218" Margin="558,148,0,0" RenderTransformOrigin="0.5,0.5" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <DatePicker x:Name="dateofjoining" HorizontalAlignment="Left" Height="25" Margin="5,92,0,0" VerticalAlignment="Top" Width="306"/>
+        <DatePicker x:Name="birthdate"  HorizontalAlignment="Left" Height="24" Margin="5,142,0,0" VerticalAlignment="Top" Width="306"/>
+        <Label Content="date of joining" HorizontalAlignment="Left" Height="28" Margin="6,60,0,0" VerticalAlignment="Top" Width="286"/>
+        <Label Content="birthdate" HorizontalAlignment="Left" Height="22" Margin="4,120,0,0" VerticalAlignment="Top" Width="286"/>
+        <ListBox x:Name="DepartmentsDroplist" Loaded="Department_OnLoaded" HorizontalAlignment="Left" Height="32" Margin="7,203,0,0" VerticalAlignment="Top" Width="304"/>
+        <Label Content="department" HorizontalAlignment="Left" Height="22" Margin="12,174,0,0" VerticalAlignment="Top" Width="274"/>
+        <Label Content="permission" HorizontalAlignment="Left" Height="28" Margin="12,246,0,0" VerticalAlignment="Top" Width="244"/>
+        <CheckBox x:Name="permAdmin" Content="Admin" HorizontalAlignment="Left" Height="22" Margin="10,280,0,0" VerticalAlignment="Top" Width="227"/>
+        <CheckBox x:Name="permHR"  Content="HR" HorizontalAlignment="Left" Height="22" Margin="10,307,0,0" VerticalAlignment="Top" Width="227"/>
+        <CheckBox x:Name="permEmployee" Content="Employee" HorizontalAlignment="Left" Height="22" Margin="8,330,0,0" VerticalAlignment="Top" Width="228"/>
+        <ListBox x:Name="experienceDropList" HorizontalAlignment="Left" Height="32" Margin="553,227,0,0" VerticalAlignment="Top" Width="222"/>
+        <Label Content="Experience" Loaded="GetExperienceList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="652,192,0,0" RenderTransformOrigin="-0.508,0.577"/>
+        <Button Click="RegisterButton" Content="Register" HorizontalAlignment="Left" Height="52" Margin="538,334,0,0" VerticalAlignment="Top" Width="222"/>
+    </Grid>
+</Window>

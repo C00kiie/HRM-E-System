@@ -10,15 +10,32 @@ namespace HRM_MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private readonly HRM_DB _context;
         public MainWindow()
         {
-            this.Visibility = Visibility.Hidden;
             var context = new HRM_DB();
-            var view = new LoginView(new ViewModels.LoginViewModel(context));
-            view.Show();
-
+            _context = context;
             InitializeComponent();
+        }
+
+        private void Login_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new Views.LoginView(new LoginViewModel(_context));
+            view.Show();
+        }
+        private void register_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new Views.RegisterView(new RegisterViewModel(_context));
+            view.Show();
+        }
+
+        private void CreateDepartment(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new Views.testwindowNewDepartment(new DepartmentViewModel(_context));
+            view.Show();
         }
     }
 }

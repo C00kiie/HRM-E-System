@@ -16,6 +16,7 @@ namespace HRM_MVVM.ViewModels
         {
             _context = context;
         }
+
         public async void AddEmployee(
             string name,
             DateTime birthDateTime,
@@ -26,7 +27,7 @@ namespace HRM_MVVM.ViewModels
             List<Employee.Permissions> perms,
             int isActivated,
             int departmentId = 0
-            )
+        )
 
         {
             var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
@@ -35,7 +36,7 @@ namespace HRM_MVVM.ViewModels
                 Birthdate = birthDateTime,
                 Experience = experience,
                 JoinedSince = joinedSinceDateTime,
-                Name =  name,
+                Name = name,
             };
             var empLogin = new EmployeeLogin()
             {
@@ -57,7 +58,6 @@ namespace HRM_MVVM.ViewModels
             _context.Logins.Add(empLogin);
             await _context.SaveChangesAsync();
         }
-
         public  List<EmployeeInfo> GetUsersInfo()
         {
             return  _context.EmployeeInfos.ToList();

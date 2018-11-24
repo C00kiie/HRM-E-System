@@ -17,29 +17,40 @@ namespace HRM_MVVM.ViewModels
             _context = context;
         }
 
-        // return types explanation:
-        // if null it means there isn't such user
-        // if false it means the user has been deactivated,
-        // if true it means the user is existent/activated at the same time. 
-        public bool? Login(string email, string password)
+        public enum LoginCodes
+        {
+            SuccessfulAndActivated,
+            SuccessfulAndNotActivated,
+            WrongPasswordOrUsername,
+            NotFound
+        }
+
+        public LoginCodes Login(string email, string password)
         {
             var user =  _context.Logins.First(p=>p.Email == email);
 
            
-            if (user != null && user.Email == email && user.Password == password)
+            if (user != null)
             {
-                if (user.IsActivated == 0)
+                if (user.Password == Functions.Password.ComputeSha256Hash(password) && user.Email == email)
                 {
-                    return false;
+                    if (user.IsActivated == 1)
+                    {
+                        return LoginCodes.SuccessfulAndActivated;
+                    }
+                    else
+                    {
+                        return LoginCodes.SuccessfulAndNotActivated;
+                    }
                 }
                 else
                 {
-                    return true;
+                    return LoginCodes.WrongPasswordOrUsername;
                 }
             }
             else
             {
-                return null;
+                return LoginCodes.NotFound;
             }
         }
 
