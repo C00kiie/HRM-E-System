@@ -128,8 +128,8 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\testwindowNewDepartment.xaml.cs">
-      <DependentUpon>testwindowNewDepartment.xaml</DependentUpon>
+    <Compile Include="Views\subviews\newDepartment.xaml.cs">
+      <DependentUpon>newDepartment.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -143,7 +143,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\testwindowNewDepartment.xaml">
+    <Page Include="Views\subviews\newDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

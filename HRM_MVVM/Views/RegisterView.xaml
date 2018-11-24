@@ -35,5 +35,6 @@
         <ListBox x:Name="experienceDropList" HorizontalAlignment="Left" Height="32" Margin="553,227,0,0" VerticalAlignment="Top" Width="222"/>
         <Label Content="Experience" Loaded="GetExperienceList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="652,192,0,0" RenderTransformOrigin="-0.508,0.577"/>
         <Button Click="RegisterButton" Content="Register" HorizontalAlignment="Left" Height="52" Margin="538,334,0,0" VerticalAlignment="Top" Width="222"/>
+        <Button Click="back" Content="back" HorizontalAlignment="Left" Height="41" Margin="14,362,0,0" VerticalAlignment="Top" Width="232"/>
     </Grid>
 </Window>

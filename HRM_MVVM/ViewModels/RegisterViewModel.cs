@@ -19,7 +19,12 @@ namespace HRM_MVVM.ViewModels
             _context = context;
         }
 
-        public  void AddEmployee(
+        public bool emailExists(string email)
+        {
+            var check = _context.Employees.FirstOrDefault(p => p.EmployeeLogin.Email == email);
+            return check != null;
+        }
+        public  string AddEmployee(
             string name,
             DateTime birthDateTime,
             DateTime joinedSinceDateTime,
@@ -55,11 +60,19 @@ namespace HRM_MVVM.ViewModels
                 Department = department
             };
 
-            // saving changes
-            _context.Employees.Add(emp);
-            _context.EmployeeInfos.Add(empInfo);
-            _context.Logins.Add(empLogin);
-             _context.SaveChanges();
+            // saving changes, but before that checking the email existence
+            if (!emailExists(email))
+            {
+                _context.Employees.Add(emp);
+                _context.EmployeeInfos.Add(empInfo);
+                _context.Logins.Add(empLogin);
+                _context.SaveChanges();
+                return "Done";
+            }
+            else
+            {
+                return "this email exists";
+            }
         }
 
         public  List<Department> LoadDepartments()

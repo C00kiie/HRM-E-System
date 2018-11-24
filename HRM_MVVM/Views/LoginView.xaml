@@ -12,6 +12,6 @@
         <TextBox x:Name="Username"  TextAlignment="Center" HorizontalAlignment="Left" Height="28" Margin="135,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="374"/>
         <TextBox x:Name="Password" Height="30"  Margin="128,203,110,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.092,0.392" />
         <TextBlock TextAlignment="center" Background="white" x:Name="PasswordLabel" HorizontalAlignment="Left" Height="29" Margin="273,169,0,0" TextWrapping="Wrap" Text="password" VerticalAlignment="Top" Width="104"/>
-        <Button Content="EmployeeLogin" HorizontalAlignment="Left" Height="55" Margin="167,275,0,0" VerticalAlignment="Top" Width="286" Click="Button_Click"/>
+        <Button Content="Login" HorizontalAlignment="Left" Height="55" Margin="167,275,0,0" VerticalAlignment="Top" Width="286" Click="Button_Click"/>
     </Grid>
 </Window>

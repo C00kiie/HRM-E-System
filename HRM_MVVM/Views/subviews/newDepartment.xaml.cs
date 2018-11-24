@@ -17,10 +17,10 @@ namespace HRM_MVVM.Views
     /// <summary>
     /// Interaction logic for testwindowNewDepartment.xaml
     /// </summary>
-    public partial class testwindowNewDepartment : Window
+    public partial class newDepartment : Window
     {
         private readonly ViewModels.DepartmentViewModel _vm;
-        public testwindowNewDepartment(ViewModels.DepartmentViewModel vm)
+        public newDepartment(ViewModels.DepartmentViewModel vm)
         {
             _vm = vm;
             InitializeComponent();
@@ -30,6 +30,13 @@ namespace HRM_MVVM.Views
         {
             _vm.AddDepartment(box.Text.Trim());
             MessageBox.Show("done");
+        }
+
+        private void back(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new MainWindow();
+            view.Show();
         }
     }
 }

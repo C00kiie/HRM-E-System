@@ -27,7 +27,7 @@ namespace HRM_MVVM.ViewModels
 
         public LoginCodes Login(string email, string password)
         {
-            var user =  _context.Logins.First(p=>p.Email == email);
+            var user = _context.Logins.FirstOrDefault(p => p.Email == email);
 
            
             if (user != null)

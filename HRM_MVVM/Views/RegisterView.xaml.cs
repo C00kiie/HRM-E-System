@@ -82,7 +82,7 @@ namespace HRM_MVVM.Views
             // name
             var name = Name.Text.Trim();
             // birthdate
-            var birthdate = this.birthdate.DisplayDate;
+            DateTime birthdate = this.birthdate.DisplayDate;
             // joined since
             DateTime joinedSince =  dateofjoining.DisplayDate;
             // email,
@@ -91,13 +91,25 @@ namespace HRM_MVVM.Views
             var passPhrase = Functions.Password.ComputeSha256Hash(this.password.Text.Trim());
             var departmentId = DepartmentsDroplist.SelectedIndex;
 
-           
-           _vm.AddEmployee(name,birthdate,joinedSince,passPhrase,emailParam, experience,perms,1,departmentId);
-            
-            
+            try
+            {
+                var progress = _vm.AddEmployee(name, birthdate, joinedSince, passPhrase, emailParam, experience, perms, 1, departmentId);
+                MessageBox.Show(progress);
+            }
+            catch (Exception exception)
+            {
+                // extra potato code, sorry Allah
+                MessageBox.Show("All fields are required");
+                throw;
+            }
         }
 
 
-        
+        private void back(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new MainWindow();
+            view.Show();
+        }
     }
 }

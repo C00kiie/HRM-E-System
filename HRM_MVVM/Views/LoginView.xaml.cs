@@ -30,20 +30,19 @@ namespace HRM_MVVM.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Username.Text = "dmcness1@shareasale.com";
-            this.Password.Text = "1ey0lFoMgg";
+            
             var state =  _vm.Login(Username.Text, Password.Text);
             if (state  == LoginViewModel.LoginCodes.SuccessfulAndActivated)
             {
-               
+                MessageBox.Show("successful login");
             }
             else if (state == LoginViewModel.LoginCodes.SuccessfulAndNotActivated)
             {
                 MessageBox.Show("The account has been deactivated");
             }
-            else if (state == LoginViewModel.LoginCodes.NotFound)
+            else if (state == LoginViewModel.LoginCodes.WrongPasswordOrUsername)
             {
-                
+                MessageBox.Show("wrong password or username");
             } else if(state == LoginViewModel.LoginCodes.NotFound)
             {
                 MessageBox.Show("no such user");
