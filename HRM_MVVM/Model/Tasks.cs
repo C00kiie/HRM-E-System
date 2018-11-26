@@ -22,7 +22,7 @@ namespace HRM_MVVM.Model
         public enum Status
         {
             Done, 
-            Not_Done, 
+            NotDone, 
             UnderProgress
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

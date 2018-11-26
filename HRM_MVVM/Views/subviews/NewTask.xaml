@@ -1,0 +1,30 @@
+﻿<Window x:Class="HRM_MVVM.Views.subviews.NewTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views.subviews"
+        mc:Ignorable="d"
+        Title="NewTask" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="employeesDropList" Loaded="EmployeesDropList_OnLoaded" HorizontalAlignment="Left" Height="83" Margin="30,49,0,0" VerticalAlignment="Top" Width="713"/>
+        <Label Content="Employee" VerticalContentAlignment="Center" Height="28" Margin="301,19,318,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="From" HorizontalAlignment="Left" Height="30" Margin="28,173,0,0" VerticalAlignment="Top" Width="344"/>
+        <DatePicker x:Name="To"  HorizontalAlignment="Left" Height="29" Margin="441,171,0,0" VerticalAlignment="Top" Width="342"/>
+        <Label Content="From" VerticalContentAlignment="Center" Height="28" Margin="29,141,590,0" VerticalAlignment="Top"/>
+        <Label FontSize="14" Content="To" VerticalContentAlignment="Center" Height="28" Margin="446,138,291,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="priority" Loaded="Priority_loaded" HorizontalAlignment="Left" Height="83" Margin="125,231,0,0" VerticalAlignment="Top" Width="212" RenderTransformOrigin="0.343,0.532"/>
+        <Label Content="Priority :" VerticalContentAlignment="Center" Height="30" Margin="28,228,681,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,0.425"/>
+        <Button Content="Sumbit" Click="Sumbit" HorizontalAlignment="Left" Height="49" Margin="485,338,0,0" VerticalAlignment="Top" Width="276"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Height="59" Margin="38,332,0,0" VerticalAlignment="Top" Width="242"/>
+        <RichTextBox x:Name="details" HorizontalAlignment="Left" Height="78" Margin="448,243,0,0" VerticalAlignment="Top" Width="326">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label Content="details" HorizontalAlignment="Left" Height="29" Margin="449,205,0,0" VerticalAlignment="Top" Width="276"/>
+
+    </Grid>
+</Window>

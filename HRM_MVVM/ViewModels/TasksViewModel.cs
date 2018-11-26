@@ -17,13 +17,30 @@ namespace HRM_MVVM.ViewModels
             _context = context;
         }
 
-        public async Task<List<EmployeeTasks>> TasksByUser(int EmployeeId)
+
+        public string LoadEmployeeName(int employeeId)
         {
-            return await Task.Run(() => _context.Tasks.Where(p => p.EmployeeId == EmployeeId).ToListAsync());
+            return _context.EmployeeInfos.First(p=>p.EmployeeInfoId == employeeId).Name;
         }
-        public async void TaskProgress(int TaskId, EmployeeTasks.Status status)
+        public List<Employee> GetEmployeesByDepartment(int departmentId)
         {
-            var resultsFirst = _context.Tasks.First(p => p.TaskId == TaskId);
+            var Employees = from temp in _context.Employees
+                where temp.Department.DepartmentId == departmentId
+                select temp;
+            return Employees.ToList();
+        }
+        public List<EmployeeTasks> GetDepartmentEmployeesTasks(int departmentId)
+        {
+            var listofTasks = _context.Tasks.Where(p => p.Employee.Department.DepartmentId == departmentId).ToList();
+            return listofTasks;
+        }
+        public List<EmployeeTasks> GetUserTasks(int employeeId)
+        {
+            return _context.Tasks.Where(p => p.EmployeeId == employeeId).ToList();
+        }
+        public async void ChangeTaskProgress(int TaskId, EmployeeTasks.Status status)
+        {
+            var resultsFirst = await _context.Tasks.FirstOrDefaultAsync(p => p.TaskId == TaskId);
             if (resultsFirst != null)
             {
                 resultsFirst.Status_ = status;
@@ -49,9 +66,12 @@ namespace HRM_MVVM.ViewModels
         }
         public async void RemoveTask(int taskId)
         {
-            var task = _context.Tasks.First(p => p.TaskId == taskId);
-            _context.Tasks.Remove(task);
-            await _context.SaveChangesAsync();
+            var task = await _context.Tasks.FirstOrDefaultAsync(p => p.TaskId == taskId);
+            if (task != null)
+            {
+                _context.Tasks.Remove(task);
+                await _context.SaveChangesAsync();
+            }
         }
 
     }

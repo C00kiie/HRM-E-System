@@ -25,6 +25,10 @@ namespace HRM_MVVM.ViewModels
             NotFound
         }
 
+        public Employee LoadEmployee(string email)
+        {
+            return _context.Employees.First(p => p.EmployeeLogin.Email == email);
+        }
         public LoginCodes Login(string email, string password)
         {
             var user = _context.Logins.FirstOrDefault(p => p.Email == email);

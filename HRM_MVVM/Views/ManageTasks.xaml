@@ -1,0 +1,16 @@
+﻿<Window x:Class="HRM_MVVM.Views.ManageTasks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="ManageTasks" Height="450" Width="800">
+    <Grid>
+        <Button Click="newTask" Content="New Task" HorizontalAlignment="Left" Height="58" Margin="25,32,0,0" VerticalAlignment="Top" Width="220"/>
+        <ListBox MouseDoubleClick="TasksList_OnMouseDoubleClick" x:Name="TasksList" Loaded="TasksLoaded" HorizontalAlignment="Left" Height="221" Margin="20,118,0,0" VerticalAlignment="Top" Width="744"/>
+        <Button  Click="RefershTasks" Content="Refersh" HorizontalAlignment="Left" Height="48" Margin="534,358,0,0" VerticalAlignment="Top" Width="238"/>
+        <Button Click="back"  Content="back" HorizontalAlignment="Left" Height="50" Margin="23,358,0,0" VerticalAlignment="Top" Width="217"/>
+
+    </Grid>
+</Window>

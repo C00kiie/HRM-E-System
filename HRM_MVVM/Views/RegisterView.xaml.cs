@@ -83,9 +83,9 @@ namespace HRM_MVVM.Views
             // name
             var name = Name.Text.Trim();
             // birthdate
-            DateTime birthdate = this.birthdate.DisplayDate;
+            DateTime birthdate = this.birthdate.SelectedDate.Value;
             // joined since
-            DateTime joinedSince =  dateofjoining.DisplayDate;
+            DateTime joinedSince =  dateofjoining.SelectedDate.Value;
             // email,
             var emailParam = this.email.Text.Trim();
 

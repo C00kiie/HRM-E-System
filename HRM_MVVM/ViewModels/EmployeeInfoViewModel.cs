@@ -33,11 +33,12 @@ namespace HRM_MVVM.ViewModels
 
         }
 
-
-        public async Task<EmployeeInfo> Employee_info(int userId)
+        public async void UpdateEmployeeCreditentials(string email, string password)
         {
-            return await _context.EmployeeInfos.FirstOrDefaultAsync(p => p.Employee.Id == userId);
+            
         }
+
+
 
 
     }

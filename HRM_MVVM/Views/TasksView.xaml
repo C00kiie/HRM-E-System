@@ -1,0 +1,14 @@
+﻿<Window x:Class="HRM_MVVM.Views.TasksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="Tasks" Height="450" Width="800">
+    <Grid>
+        <ListBox  MouseDoubleClick="TasksList_OnMouseDoubleClick" Loaded="DataListLoaded" x:Name="TasksList" HorizontalAlignment="Left" Height="202" Margin="4,47,0,0" VerticalAlignment="Top" Width="783"/>
+        <Button Click="back" Content="back" HorizontalAlignment="Left" Margin="27,364,0,0" VerticalAlignment="Top" Width="127" Height="36"/>
+
+    </Grid>
+</Window>

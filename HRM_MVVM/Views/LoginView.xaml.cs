@@ -30,11 +30,15 @@ namespace HRM_MVVM.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            //this.Username.Text = "testAccount@testAccount.com";
+            //this.Password.Text = "testAccount";
             var state =  _vm.Login(Username.Text, Password.Text);
             if (state  == LoginViewModel.LoginCodes.SuccessfulAndActivated)
             {
-                MessageBox.Show("successful login");
+                this.Hide();
+                Employee emp = _vm.LoadEmployee(this.Username.Text);
+                var view = new EmployeeView(emp,new EmployeeViewModel(_vm._context));
+                view.Show();
             }
             else if (state == LoginViewModel.LoginCodes.SuccessfulAndNotActivated)
             {
