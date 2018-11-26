@@ -43,5 +43,35 @@ namespace HRM_MVVM.Views
             var view = new ManageTasks(_employee, new TasksViewModel(_vm._context));
             view.Show();
         }
+
+        private void logout(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new MainWindow();
+            view.Show();
+        }
+
+        private void MyProfileView(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new ProfileView(_employee,new EmployeeViewModel(_vm._context));
+            view.Show();
+        }
+
+        private void EmployeeView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var permrole = _employee.type;
+            //var fakeflag = 0;
+            if (permrole == Employee.MemberType.Manager)
+            {
+                TasksManagement.Visibility = Visibility.Visible;
+                manageAttendence.Visibility = Visibility.Visible;
+                ManageEmployees.Visibility = Visibility.Visible;
+            }else if (permrole == Employee.MemberType.HR)
+            {
+                manageAttendence.Visibility = Visibility.Visible;
+                ManageEmployees.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

@@ -8,17 +8,28 @@
         Title="TaskDetails" Height="367.105" Width="778.007" Loaded="TaskDetails_OnLoaded">
 
     <Grid Margin="0,0,-3,-3">
-        <Button Content="Mark as Done" HorizontalAlignment="Left" Height="46" Margin="577,265,0,0" VerticalAlignment="Top" Width="155"/>
-        <Button Content="Mark as under progress" HorizontalAlignment="Left" Height="46" Margin="379,266,0,0" VerticalAlignment="Top" Width="155"/>
-        <Button Content="exit" HorizontalAlignment="Left" Height="46" Margin="36,268,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button Click="MarkAsDone" Content="Mark as Done" HorizontalAlignment="Left" Height="46" Margin="577,265,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button Click="MarkAsUnderProgress" Content="Mark as under progress" HorizontalAlignment="Left" Height="46" Margin="379,266,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button Click="ButtonBase_OnClick" Content="exit" HorizontalAlignment="Left" Height="46" Margin="36,268,0,0" VerticalAlignment="Top" Width="155"/>
         <Label Content="Task priority: " HorizontalAlignment="Left" Height="37" Margin="84,46,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="priority" Content="Label" HorizontalAlignment="Left" Height="28" Margin="178,45,0,0" VerticalAlignment="Top" Width="350"/>
         <Label Content="Task details: " HorizontalAlignment="Left" Height="37" Margin="84,95,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="details" Content="Label" HorizontalAlignment="Left" Height="28" Margin="178,94,0,0" VerticalAlignment="Top" Width="350"/>
+        <Label x:Name="details" Content="Label" HorizontalAlignment="Left" Height="28" Margin="178,94,0,0" VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.199"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Label Content="from: " HorizontalAlignment="Left" Height="37" Margin="87,156,0,0" VerticalAlignment="Top" Width="59"/>
         <Label x:Name="from" Content="Label" HorizontalAlignment="Left" Height="28" Margin="288,162,0,0" VerticalAlignment="Top" Width="468"/>
         <Label Content="to: " HorizontalAlignment="Left" Height="37" Margin="85,206,0,0" VerticalAlignment="Top" Width="178"/>
         <Label x:Name="to" Content="Label" HorizontalAlignment="Left" Height="28" Margin="280,209,0,0" VerticalAlignment="Top" Width="478"/>
+        <Label Content="status" HorizontalAlignment="Left" Height="37" Margin="86,122,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="status" Content="status" HorizontalAlignment="Left" Height="28" Margin="180,121,0,0" VerticalAlignment="Top" Width="350"/>
 
     </Grid>
 </Window>

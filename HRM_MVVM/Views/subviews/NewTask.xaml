@@ -16,7 +16,7 @@
         <ListBox x:Name="priority" Loaded="Priority_loaded" HorizontalAlignment="Left" Height="83" Margin="125,231,0,0" VerticalAlignment="Top" Width="212" RenderTransformOrigin="0.343,0.532"/>
         <Label Content="Priority :" VerticalContentAlignment="Center" Height="30" Margin="28,228,681,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,0.425"/>
         <Button Content="Sumbit" Click="Sumbit" HorizontalAlignment="Left" Height="49" Margin="485,338,0,0" VerticalAlignment="Top" Width="276"/>
-        <Button Content="Exit" HorizontalAlignment="Left" Height="59" Margin="38,332,0,0" VerticalAlignment="Top" Width="242"/>
+        <Button  Click="ButtonBase_OnClick" Content="Exit" HorizontalAlignment="Left" Height="59" Margin="38,332,0,0" VerticalAlignment="Top" Width="242"/>
         <RichTextBox x:Name="details" HorizontalAlignment="Left" Height="78" Margin="448,243,0,0" VerticalAlignment="Top" Width="326">
             <FlowDocument>
                 <Paragraph>

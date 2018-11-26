@@ -24,6 +24,7 @@ namespace HRM_MVVM.Views
     /// Employee.Experience_ experience,
     /// List&lt;Employee.Permissions&gt; perms,
     /// int isActivated,
+    /// MemberTypeEnum type = type;
     /// int departmentId = 0
     /// </summary>
     public partial class RegisterView : Window
@@ -62,20 +63,7 @@ namespace HRM_MVVM.Views
         {
             // setting up perms
             // I am sorry Allah for this potato UI code ;-;
-            List<Employee.Permissions> perms = new List<Employee.Permissions>();
-            bool adminCheck = permAdmin.IsChecked == true;
-            bool hrcheck = permHR.IsChecked == true;
-            bool employeeCheck = permEmployee.IsChecked == true;
-            if (employeeCheck)
-            {
-                perms.Add(Employee.Permissions.Employee);
-            }else if(adminCheck)
-            {
-                perms.Add(Employee.Permissions.Admin);
-            }else if (hrcheck)
-            {
-                perms.Add(Employee.Permissions.HR);
-            }
+           
             
             // experience
             string selectedExperience = experienceDropList.SelectedItem.ToString();
@@ -87,21 +75,31 @@ namespace HRM_MVVM.Views
             // joined since
             DateTime joinedSince =  dateofjoining.SelectedDate.Value;
             // email,
+            
+            var passPhrase = Functions.Password.ComputeSha256Hash(this.password.Text.Trim());
+
+            var departmentId = DepartmentsDroplist.SelectedIndex;
             var emailParam = this.email.Text.Trim();
 
-            var passPhrase = Functions.Password.ComputeSha256Hash(this.password.Text.Trim());
-            var departmentId = DepartmentsDroplist.SelectedIndex;
-
-            try
+            if (departmentRoleList.SelectedItem != null)
             {
-                var progress = _vm.AddEmployee(name, birthdate, joinedSince, passPhrase, emailParam, experience, perms, 1, departmentId);
-                MessageBox.Show(progress);
+                Employee.MemberType type = (Employee.MemberType)Enum.Parse(typeof(Employee.MemberType),
+                    departmentRoleList.SelectedItem.ToString());
+                try
+                {
+                    var progress = _vm.AddEmployee(name, birthdate, joinedSince, passPhrase, emailParam, experience, 1, type, departmentId);
+                    MessageBox.Show(progress);
+                }
+                catch (Exception exception)
+                {
+                    // extra potato code, sorry Allah
+                    MessageBox.Show("All fields are required");
+                    MessageBox.Show(exception.ToString());
+                }
             }
-            catch (Exception exception)
+            else
             {
-                // extra potato code, sorry Allah
-                MessageBox.Show("All fields are required");
-                throw;
+                MessageBox.Show("Select role");
             }
         }
 
@@ -111,6 +109,17 @@ namespace HRM_MVVM.Views
             this.Hide();
             var view = new MainWindow();
             view.Show();
+        }
+
+        private void rolesLoaded(object sender, RoutedEventArgs e)
+        {
+            var memberTypes = Enum
+                .GetValues(typeof(Employee.MemberType))
+                .Cast<Employee.MemberType>();
+            foreach (var item in memberTypes)
+            {
+                departmentRoleList.Items.Add(item);
+            }
         }
     }
 }

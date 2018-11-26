@@ -26,15 +26,13 @@
         <DatePicker x:Name="birthdate"  HorizontalAlignment="Left" Height="24" Margin="5,142,0,0" VerticalAlignment="Top" Width="306"/>
         <Label Content="date of joining" HorizontalAlignment="Left" Height="28" Margin="6,60,0,0" VerticalAlignment="Top" Width="286"/>
         <Label Content="birthdate" HorizontalAlignment="Left" Height="22" Margin="4,120,0,0" VerticalAlignment="Top" Width="286"/>
-        <ListBox x:Name="DepartmentsDroplist" Loaded="Department_OnLoaded" HorizontalAlignment="Left" Height="32" Margin="7,203,0,0" VerticalAlignment="Top" Width="304"/>
+        <ListBox x:Name="DepartmentsDroplist" Loaded="Department_OnLoaded" HorizontalAlignment="Left" Height="32" Margin="7,203,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="department" HorizontalAlignment="Left" Height="22" Margin="12,174,0,0" VerticalAlignment="Top" Width="274"/>
-        <Label Content="permission" HorizontalAlignment="Left" Height="28" Margin="12,246,0,0" VerticalAlignment="Top" Width="244"/>
-        <CheckBox x:Name="permAdmin" Content="Admin" HorizontalAlignment="Left" Height="22" Margin="10,280,0,0" VerticalAlignment="Top" Width="227"/>
-        <CheckBox x:Name="permHR"  Content="HR" HorizontalAlignment="Left" Height="22" Margin="10,307,0,0" VerticalAlignment="Top" Width="227"/>
-        <CheckBox x:Name="permEmployee" Content="Employee" HorizontalAlignment="Left" Height="22" Margin="8,330,0,0" VerticalAlignment="Top" Width="228"/>
         <ListBox x:Name="experienceDropList" HorizontalAlignment="Left" Height="32" Margin="553,227,0,0" VerticalAlignment="Top" Width="222"/>
         <Label Content="Experience" Loaded="GetExperienceList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="652,192,0,0" RenderTransformOrigin="-0.508,0.577"/>
         <Button Click="RegisterButton" Content="Register" HorizontalAlignment="Left" Height="52" Margin="538,334,0,0" VerticalAlignment="Top" Width="222"/>
         <Button Click="back" Content="back" HorizontalAlignment="Left" Height="41" Margin="14,362,0,0" VerticalAlignment="Top" Width="232"/>
+        <ListBox  x:Name="departmentRoleList" Loaded="rolesLoaded" HorizontalAlignment="Left" Height="32" Margin="20,296,0,0" VerticalAlignment="Top" Width="240"/>
+        <Label Content="department-Role" HorizontalAlignment="Left" Height="22" Margin="26,267,0,0" VerticalAlignment="Top" Width="274"/>
     </Grid>
 </Window>

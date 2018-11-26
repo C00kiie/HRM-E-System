@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HRM_MVVM.Model;
+using HRM_MVVM.ViewModels;
 
 namespace HRM_MVVM.Views.subviews
 {
@@ -21,8 +22,10 @@ namespace HRM_MVVM.Views.subviews
     public partial class TaskDetails : Window
     {
         private readonly EmployeeTasks task;
-        public TaskDetails(EmployeeTasks task)
+        private readonly TasksViewModel _vm;
+        public TaskDetails(EmployeeTasks task,TasksViewModel vm)
         {
+            _vm = vm;
             this.task = task;
             InitializeComponent();
         }
@@ -33,6 +36,24 @@ namespace HRM_MVVM.Views.subviews
             to.Content = task.EndPoint.ToLongDateString();
             priority.Content = task.Priority_.ToString();
             details.Content = task.Details.ToString();
+            status.Content = task.Status_.ToString();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void MarkAsUnderProgress(object sender, RoutedEventArgs e)
+        {
+            _vm.ChangeTaskProgress(task.TaskId,EmployeeTasks.Status.UnderProgress);
+            status.Content = EmployeeTasks.Status.UnderProgress;
+        }
+
+        private void MarkAsDone(object sender, RoutedEventArgs e)
+        {
+            _vm.ChangeTaskProgress(task.TaskId, EmployeeTasks.Status.Done);
+            status.Content = EmployeeTasks.Status.Done;
         }
     }
 }

@@ -8,9 +8,9 @@
         Title="testwindowNewDepartment" Height="366" Width="440">
     <Grid Margin="62,0,80,29">
         <Label Content="department name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="86,56,0,0" Height="28"/>
-        <TextBox x:Name="box" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.142,6" Margin="94,120,0,0"/>
+        <TextBox x:Name="box" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.142,6" Margin="94,120,0,0"/>
         <Button  Click="add_department" Content="create" HorizontalAlignment="Left" Height="57" Margin="70,189,0,0" VerticalAlignment="Top" Width="178"/>
-        <Button Click="back" Content="back" HorizontalAlignment="Left" Height="41" Margin="50,257,0,0" VerticalAlignment="Top" Width="201"/>
+        <Button Click="back" Content="back" HorizontalAlignment="Left" Height="41" Margin="71,257,0,0" VerticalAlignment="Top" Width="180"/>
 
     </Grid>
 </Window>

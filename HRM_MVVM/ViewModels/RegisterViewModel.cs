@@ -31,8 +31,8 @@ namespace HRM_MVVM.ViewModels
             string password,
             string email,
             Employee.Experience_ experience,
-            List<Employee.Permissions> perms,
             int isActivated,
+            Employee.MemberType type = Employee.MemberType.Employee,
             int departmentId = 0
         )
 
@@ -56,8 +56,8 @@ namespace HRM_MVVM.ViewModels
             {
                 EmployeeInfo = empInfo,
                 EmployeeLogin = empLogin,
-                Permission = perms,
-                Department = department
+                Department = department,
+                type = type
             };
 
             // saving changes, but before that checking the email existence

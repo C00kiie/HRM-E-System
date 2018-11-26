@@ -31,7 +31,8 @@ namespace HRM_MVVM.ViewModels
         }
         public List<EmployeeTasks> GetDepartmentEmployeesTasks(int departmentId)
         {
-            var listofTasks = _context.Tasks.Where(p => p.Employee.Department.DepartmentId == departmentId).ToList();
+            // filter by employee department, and employee role
+            var listofTasks = _context.Tasks.Where(p => p.Employee.Department.DepartmentId == departmentId && p.Employee.type == Employee.MemberType.Employee).ToList();
             return listofTasks;
         }
         public List<EmployeeTasks> GetUserTasks(int employeeId)

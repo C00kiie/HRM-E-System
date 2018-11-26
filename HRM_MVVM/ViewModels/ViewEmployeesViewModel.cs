@@ -48,7 +48,6 @@ namespace HRM_MVVM.ViewModels
             {
                 EmployeeInfo = empInfo,
                 EmployeeLogin = empLogin,
-                Permission = perms,
                 Department = department
             };
 

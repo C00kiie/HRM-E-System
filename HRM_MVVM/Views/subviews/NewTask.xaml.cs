@@ -73,5 +73,10 @@ namespace HRM_MVVM.Views.subviews
 
             }
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

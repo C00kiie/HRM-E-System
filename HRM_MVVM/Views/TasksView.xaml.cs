@@ -57,7 +57,7 @@ namespace HRM_MVVM.Views
         private void TasksList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var selected_index = TasksList.SelectedIndex;
-            var view = new TaskDetails(tasksDict[selected_index]);
+            var view = new TaskDetails(tasksDict[selected_index],_vm);
             view.Show();
         }
     }
