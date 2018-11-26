@@ -73,5 +73,18 @@ namespace HRM_MVVM.Views
                 ManageEmployees.Visibility = Visibility.Visible;
             }
         }
+
+        private void RegisterAttendanceOnThisDay(object sender, RoutedEventArgs e)
+        {
+            string registerAttendance = _vm.RegisterAttendance(_employee);
+            MessageBox.Show(registerAttendance);
+        }
+
+        private void AttendanceView(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new AttendenceView(_employee, new AttendanceViewModel(_vm._context));
+            view.Show();
+        }
     }
 }

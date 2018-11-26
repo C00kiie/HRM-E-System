@@ -16,24 +16,37 @@ namespace HRM_MVVM.ViewModels
         {
             _context = context;
         }
-        public async void RegisterAttendance(int EmployeeId)
+
+        public  List<HolidayRequests> GetHolidaysByThisMonth(Employee employee, DateTime now)
+        {
+            var holidays =  _context.HolidayRequests.
+                Where(p => p.EmployeeId == employee.Id
+                      && p.RequestedDay.Month == now.Month).
+                ToList();
+            return holidays;
+        }
+        
+        public  void RegisterAttendance(Employee employee)
         {
             GeoCoordinate coordinate = new GeoCoordinate();
             var attendence = new Attendance()
             {
-                EmployeeId = EmployeeId,
+                EmployeeId = employee.Id,
                 Day = DateTime.Now,
                 Lat = coordinate.Altitude,
                 Long = coordinate.Longitude
             };
             _context.Attendances.Add(attendence);
-            await _context.SaveChangesAsync();
+            _context.SaveChangesAsync();
 
         }
 
-        public async Task<List<Attendance>> GetAttendanceHistory(int EmployeeId)
+        public  List<Attendance> GetAttendanceHistoryByThisMonth(Employee Employee, DateTime now)
         {
-            return await Task.Run(() => _context.Attendances.Where(p => p.EmployeeId == EmployeeId).ToListAsync());
+            return _context.Attendances.
+                Where(p => p.EmployeeId == Employee.Id &&
+                      p.Day.Month == now.Month).
+                     ToList();
         }
 
 

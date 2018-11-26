@@ -17,7 +17,7 @@ namespace HRM_MVVM.Model
         [Key]
         public int RequestId { get; set; }
         [Required]
-        public List<DateTime> RequestedDays { get; set; }
+        public DateTime RequestedDay { get; set; }
         [Required]
         public RequestStatus ReqStatus { get; set; }
         [Required]

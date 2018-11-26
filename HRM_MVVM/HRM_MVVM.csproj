@@ -122,6 +122,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\ViewEmployeesViewModel.cs" />
+    <Compile Include="Views\AttendenceView.xaml.cs">
+      <DependentUpon>AttendenceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <DependentUpon>TasksView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttendenceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

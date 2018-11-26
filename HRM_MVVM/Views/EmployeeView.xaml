@@ -8,7 +8,7 @@
         Title="EmployeeView" Height="450" Width="800"  >
     <Grid >
         <Button Click="TasksView" Content="Tasks" HorizontalAlignment="Left" Height="60" Margin="42,36,0,0" VerticalAlignment="Top" Width="236"/>
-        <Button Content="Attendence" HorizontalAlignment="Left" Height="60" Margin="44,124,0,0" VerticalAlignment="Top" Width="236"/>
+        <Button Click="AttendanceView" Content="Attendence" HorizontalAlignment="Left" Height="60" Margin="44,124,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Click="MyProfileView" Content="My Profile" HorizontalAlignment="Left" Height="60" Margin="44,314,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Loaded="EmployeeView_OnLoaded" Click="logout"  Content="Log out" HorizontalAlignment="Left" Height="41" Margin="546,357,0,0" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
@@ -23,7 +23,7 @@
         <Button Content= "Activities {posts}" HorizontalAlignment="Left" Height="60" Margin="43,224,0,0" VerticalAlignment="Top" Width="236"/>
         <Button  x:Name="manageAttendence" Visibility="Hidden" Content="Manage Attendence" HorizontalAlignment="Left" Height="60" Margin="544,214,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Visibility="Hidden" x:Name="ManageEmployees" Content="Manage Employees" HorizontalAlignment="Left" Height="60" Margin="542,123,0,0" VerticalAlignment="Top" Width="236"/>
-        <Button Content="Register my Attendence" HorizontalAlignment="Left" Height="39" Margin="550,308,0,0" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.5,0.5">
+        <Button Click="RegisterAttendanceOnThisDay" Content="Register my Attendence" HorizontalAlignment="Left" Height="39" Margin="550,308,0,0" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

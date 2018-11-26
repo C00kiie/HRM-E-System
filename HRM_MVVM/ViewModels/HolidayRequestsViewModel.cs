@@ -16,13 +16,13 @@ namespace HRM_MVVM.ViewModels
         {
             _context = context; 
         }
-        public async void RequestHoliday(Employee employee, List<DateTime> offDays)
+        public async void RequestHoliday(Employee employee, DateTime offDays)
         {
            
             HolidayRequests request = new HolidayRequests()
             {
                 EmployeeId = employee.Id,
-                RequestedDays =  offDays,
+                RequestedDay =  offDays,
                 // by default this value is unhandled
                 ReqStatus =  HolidayRequests.RequestStatus.UnHandled,
                 

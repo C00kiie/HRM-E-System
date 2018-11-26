@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Device.Location;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -35,7 +36,33 @@ namespace HRM_MVVM.ViewModels
             }
 
         }
-        public bool emailExists(string email)
+
+        public  string RegisterAttendance(Employee employee)
+        {
+            var lastRecord = _context.Attendances.FirstOrDefault(p => p.EmployeeId == employee.Id
+                                                                      && p.Day.Day == DateTime.Now.Day);
+            if (lastRecord == null)
+            {
+                // this func returns "Is Unknown"
+                
+                var attendance = new Attendance()
+                {
+                    EmployeeId = employee.Id,
+                    Day = DateTime.Now,
+                    Lat = 4.4444,
+                    Long = 4.44444
+                };
+
+                _context.Attendances.Add(attendance);
+                _context.SaveChanges();
+                return "Done";
+            }
+            else
+            {
+                return "You've already registered";
+            }
+        }
+        public bool EmailExists(string email)
         {
             var check = _context.Employees.FirstOrDefault(p => p.EmployeeLogin.Email == email);
             return check != null;

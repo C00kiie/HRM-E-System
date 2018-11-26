@@ -26,10 +26,10 @@ namespace HRM_MVVM.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         type = c.Int(nullable: false),
-                        Department_DepartmentId = c.Int(),
+                        Department_DepartmentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Departments", t => t.Department_DepartmentId)
+                .ForeignKey("dbo.Departments", t => t.Department_DepartmentId, cascadeDelete: true)
                 .Index(t => t.Department_DepartmentId);
             
             CreateTable(
@@ -73,6 +73,7 @@ namespace HRM_MVVM.Migrations
                 c => new
                     {
                         RequestId = c.Int(nullable: false, identity: true),
+                        RequestedDay = c.DateTime(nullable: false),
                         ReqStatus = c.Int(nullable: false),
                         HolidayPermissionsLevel = c.Int(nullable: false),
                         EmployeeId = c.Int(nullable: false),
