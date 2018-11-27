@@ -8,7 +8,7 @@ using HRM_MVVM.Model;
 
 namespace HRM_MVVM.ViewModels
 {
-    public class ViewEmployeesViewModel
+    public class ViewEmployeesViewModel 
     {
         public readonly HRM_DB _context;
 
@@ -94,6 +94,28 @@ namespace HRM_MVVM.ViewModels
             {
                 user.Result.IsActivated = 1;
                 await _context.SaveChangesAsync();
+            }
+        }
+
+        public List<Department> GetDepartments()
+        {
+            return _context.Departments.ToList();
+        }
+
+        public void ChangeRole(Employee employee, Employee.MemberType type)
+        {
+            var emp = _context.Employees.FirstOrDefault(p => p.Id == employee.Id);
+            emp.type = type;
+            _context.SaveChanges();
+        }
+        public  void AssignEmployee(Employee employee, int departmentId)
+        {
+            var emp =  _context.Employees.FirstOrDefault(p => p.Id == employee.Id);
+            var department = _context.Departments.FirstOrDefault(p => p.DepartmentId == departmentId);
+            if (emp != null & department != null)
+            {
+                department.Members.Add(emp);
+                _context.SaveChanges();
             }
         }
     }

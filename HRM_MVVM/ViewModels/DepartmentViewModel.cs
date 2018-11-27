@@ -17,6 +17,23 @@ namespace HRM_MVVM.ViewModels
         {
             return _context.Departments.ToList();
         }
+
+        public Department ChangeName(Department departmentObj, string newName)
+        {
+            var department =  _context.
+                Departments
+               .FirstOrDefault(p => p.DepartmentName == departmentObj.DepartmentName);
+            if (department != null)
+            {
+                department.DepartmentName = newName;
+                _context.SaveChanges();
+                return department;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public async void AddDepartment(string departmentName)
         {
             
@@ -47,26 +64,6 @@ namespace HRM_MVVM.ViewModels
                 await _context.SaveChangesAsync();
             }
 
-        }
-        public async void AddDepartmentManager(int departmentId, int managerId)
-        {
-            var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
-            var member = await  _context.Employees.FirstOrDefaultAsync(p => p.Id == managerId);
-            if (department != null && member != null)
-            {
-                department.Members.Add(member);
-                await _context.SaveChangesAsync();
-            }
-        }
-        public async void AssignEmployee(int employeeId, int departmentId)
-        {
-            var emp = await _context.Employees.FirstOrDefaultAsync(p=>p.Id== employeeId);
-            var department = await _context.Departments.FirstOrDefaultAsync(p => p.DepartmentId == departmentId);
-            if (emp != null & department != null)
-            {
-                department.Members.Add(emp);
-                await _context.SaveChangesAsync();
-            }
         }
     }
 }

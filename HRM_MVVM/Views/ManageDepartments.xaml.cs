@@ -46,7 +46,7 @@ namespace HRM_MVVM.Views
             var index = department_list_ui.SelectedIndex;
             if (index != -1)
             {
-                var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context));
+                var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context),1);
                 view.Show();
             }
         }
@@ -61,6 +61,32 @@ namespace HRM_MVVM.Views
                 department_list_ui.Items.Add(department.DepartmentName);
                 i++;
             }
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.nameLabel.Visibility = Visibility.Visible;
+            this.nametextbox.Visibility = Visibility.Visible;
+            this.ChangeNameButton.Visibility = Visibility.Visible;
+        }
+
+        private void ChangeNameButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var index = department_list_ui.SelectedIndex;
+            if (index != -1)
+            {
+                if (!string.IsNullOrWhiteSpace(this.nametextbox.Text))
+                {
+                    
+                    Department department = Departments_list[index];
+                    var result =  _vm.ChangeName(department, this.nametextbox.Text.Trim());
+                    department_list_ui.Items.Remove(department_list_ui.SelectedItem);
+                    department_list_ui.Items.Add(result.DepartmentName);
+                    MessageBox.Show("Done");
+
+                }
+            }
+            
         }
     }
 }

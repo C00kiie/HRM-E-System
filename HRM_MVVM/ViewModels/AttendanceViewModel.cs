@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using HRM_MVVM.Model;
 using System.Device.Location;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace HRM_MVVM.ViewModels
 {

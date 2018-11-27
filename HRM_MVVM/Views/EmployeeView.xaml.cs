@@ -67,6 +67,7 @@ namespace HRM_MVVM.Views
                 TasksManagement.Visibility = Visibility.Visible;
                 manageAttendence.Visibility = Visibility.Visible;
                 ManageEmployees.Visibility = Visibility.Visible;
+                manageDepartments.Visibility = Visibility.Visible;
             }else if (permrole == Employee.MemberType.HR)
             {
                 manageAttendence.Visibility = Visibility.Visible;
@@ -91,6 +92,13 @@ namespace HRM_MVVM.Views
         {
             this.Hide();
             var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context));
+            view.Show();
+        }
+
+        private void ManageDepartments_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new ManageDepartments(_employee,new DepartmentViewModel(_vm._context));
             view.Show();
         }
     }

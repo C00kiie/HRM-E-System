@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using HRM_MVVM.Model;
 
 namespace HRM_MVVM.ViewModels
