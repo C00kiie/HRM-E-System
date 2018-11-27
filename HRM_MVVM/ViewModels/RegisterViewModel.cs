@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Windows.Navigation;
 using HRM_MVVM.Model;
 
 namespace HRM_MVVM.ViewModels
