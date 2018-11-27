@@ -23,9 +23,10 @@ namespace HRM_MVVM.Views
     {
         private readonly AttendanceViewModel _vm;
         private readonly Employee _employee;
-
-        public AttendenceView(Employee employee, AttendanceViewModel vm)
+        private int runMode;
+        public AttendenceView(Employee employee, AttendanceViewModel vm, int runmode = 0)
         {
+            runMode = runmode;
             _vm = vm;
             _employee = employee;
             InitializeComponent();
@@ -62,9 +63,16 @@ namespace HRM_MVVM.Views
 
         private void back(object sender, RoutedEventArgs e)
         {
-         this.Hide();
-         var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
-            view.Show();
+            if (this.runMode == 0)
+            {
+                this.Hide();
+                var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
+                view.Show();
+            }
+            else
+            {
+                this.Hide();
+            }
         }
     }
 }

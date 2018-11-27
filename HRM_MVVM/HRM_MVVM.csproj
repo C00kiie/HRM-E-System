@@ -131,6 +131,12 @@
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManageDepartments.xaml.cs">
+      <DependentUpon>ManageDepartments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageEmployeesView.xaml.cs">
+      <DependentUpon>ManageEmployeesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManageTasks.xaml.cs">
       <DependentUpon>ManageTasks.xaml</DependentUpon>
     </Compile>
@@ -165,6 +171,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageDepartments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageEmployeesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

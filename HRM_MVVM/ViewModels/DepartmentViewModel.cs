@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using HRM_MVVM.Model;
 namespace HRM_MVVM.ViewModels
@@ -10,6 +11,11 @@ namespace HRM_MVVM.ViewModels
         public DepartmentViewModel(HRM_DB context)
         {
             _context = context;
+        }
+
+        public List<Department> GetDepartments()
+        {
+            return _context.Departments.ToList();
         }
         public async void AddDepartment(string departmentName)
         {

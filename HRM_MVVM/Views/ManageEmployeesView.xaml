@@ -1,0 +1,30 @@
+﻿<Window x:Class="HRM_MVVM.Views.ManageEmployeesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="ManageEmployeesView" Height="450" Width="800">
+    <Grid Margin="0,0,-11,-7">
+        <ListBox x:Name="EmployeesList" Loaded="form_loaded" HorizontalAlignment="Left" Height="294" Margin="11,19,0,0" VerticalAlignment="Top" Width="766"/>
+        <Button Click="DeactivateEmployee" Content="Deactivate" Margin="145,349,547,45"/>
+        <Button Click="ActivateEmployee" Content="Activate" Margin="148,384,544,10" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="3.585"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.783"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="back" Content="Back" HorizontalAlignment="Left" Height="27" Margin="15,379,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button Click="ViewTasks"  Content="Tasks" HorizontalAlignment="Left" Height="31" Margin="271,347,0,0" VerticalAlignment="Top" Width="354"/>
+        <Button Click="ViewAttendance"  Content="Attendance" HorizontalAlignment="Left" Height="26" Margin="273,386,0,0" VerticalAlignment="Top" Width="357"/>
+        <Button Click="AddEmployeeView" Content="Add Employee" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Margin="641,347,0,0" Height="30"/>
+        <Button Click="RemoveEmployee" Content="Remove Employee" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="640,386,0,0" Height="30"/>
+        <Button Click="Refersh" Content="Refersh" HorizontalAlignment="Left" Height="26" Margin="15,347,0,0" VerticalAlignment="Top" Width="101"/>
+
+    </Grid>
+</Window>

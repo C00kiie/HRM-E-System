@@ -18,8 +18,14 @@ namespace HRM_MVVM.Views
         private readonly Employee _employee;
         private readonly TasksViewModel _vm;
         private Dictionary<int, EmployeeTasks> tasksDict = new Dictionary<int, EmployeeTasks>();
-        public TasksView(Employee employee, TasksViewModel vm)
+
+        private int RunMode = 0;
+        // runmode is a param to specify the back button redirection, 
+        // int runmode = 0 => default, don't do anything
+        // int runmode = 1 => change back button to make it exist insteading of going back
+        public TasksView(Employee employee, TasksViewModel vm, int runMode = 0)
         {
+            RunMode = runMode;
             _vm = vm;
             _employee = employee; 
             InitializeComponent();
@@ -49,9 +55,16 @@ namespace HRM_MVVM.Views
 
         private void back(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
-            view.Show();
+            if (RunMode == 0)
+            {
+                this.Hide();
+                var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
+                view.Show();
+            }
+            else
+            {
+                this.Hide();
+            }
         }
 
         private void TasksList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

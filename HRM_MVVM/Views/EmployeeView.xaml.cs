@@ -86,5 +86,12 @@ namespace HRM_MVVM.Views
             var view = new AttendenceView(_employee, new AttendanceViewModel(_vm._context));
             view.Show();
         }
+
+        private void ManageEmployees_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context));
+            view.Show();
+        }
     }
 }

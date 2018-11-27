@@ -16,7 +16,10 @@ namespace HRM_MVVM.ViewModels
         {
             _context = context;
         }
-
+        public List<Employee> GetEmployees()
+        {
+            return _context.Employees.ToList();
+        }
         public async void AddEmployee(
             string name,
             DateTime birthDateTime,
@@ -61,11 +64,11 @@ namespace HRM_MVVM.ViewModels
         {
             return  _context.EmployeeInfos.ToList();
         }
-        public async void RemoveEmployee(int employeeId)
+        public async void RemoveEmployee(Employee employee)
         {
-            var emp = await _context.Employees.FindAsync(employeeId);
-            var empLogin = await _context.Logins.FindAsync(employeeId);
-            var empInfo = await _context.EmployeeInfos.FindAsync(employeeId);
+            var emp = await _context.Employees.FindAsync(employee.Id);
+            var empLogin = await _context.Logins.FindAsync(employee.Id);
+            var empInfo = await _context.EmployeeInfos.FindAsync(employee.Id);
 
             if (emp != null && empLogin != null && empInfo != null)
             {
@@ -75,9 +78,9 @@ namespace HRM_MVVM.ViewModels
                 await _context.SaveChangesAsync();
             }
         }
-        public async void DeactivateUser(int userId)
+        public async void DeactivateUser(Employee employee)
         {
-            var user = _context.Logins.FirstOrDefaultAsync(p => p.LoginId == userId);
+            var user = _context.Logins.FirstOrDefaultAsync(p => p.LoginId == employee.Id);
             if (user != null)
             {
                 user.Result.IsActivated = 0;

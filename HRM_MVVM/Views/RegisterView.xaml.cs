@@ -30,8 +30,14 @@ namespace HRM_MVVM.Views
     public partial class RegisterView : Window
     {
         private readonly ViewModels.RegisterViewModel _vm;
-        public RegisterView(ViewModels.RegisterViewModel vbm)
+
+        private int RunMode = 0;
+        // runmode is a param to specify the back button redirection, 
+        // int runmode = 0 => default, don't do anything
+        // int runmode = 1 => change back button to make it exist insteading of going back
+        public RegisterView(ViewModels.RegisterViewModel vbm, int runMode = 0)
         {
+            RunMode = runMode;
             _vm = vbm;
             InitializeComponent();
         }
@@ -106,9 +112,16 @@ namespace HRM_MVVM.Views
 
         private void back(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            var view = new MainWindow();
-            view.Show();
+            if (this.RunMode == 0)
+            {
+                this.Hide();
+                var view = new MainWindow();
+                view.Show();
+            }
+            else
+            {
+                this.Hide();
+            }
         }
 
         private void rolesLoaded(object sender, RoutedEventArgs e)

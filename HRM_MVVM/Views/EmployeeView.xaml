@@ -22,7 +22,7 @@
         </Button>
         <Button Content= "Activities {posts}" HorizontalAlignment="Left" Height="60" Margin="43,224,0,0" VerticalAlignment="Top" Width="236"/>
         <Button  x:Name="manageAttendence" Visibility="Hidden" Content="Manage Attendence" HorizontalAlignment="Left" Height="60" Margin="544,214,0,0" VerticalAlignment="Top" Width="236"/>
-        <Button Visibility="Hidden" x:Name="ManageEmployees" Content="Manage Employees" HorizontalAlignment="Left" Height="60" Margin="542,123,0,0" VerticalAlignment="Top" Width="236"/>
+        <Button  Click="ManageEmployees_OnClick" Visibility="Hidden" x:Name="ManageEmployees" Content="Manage Employees" HorizontalAlignment="Left" Height="60" Margin="542,123,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Click="RegisterAttendanceOnThisDay" Content="Register my Attendence" HorizontalAlignment="Left" Height="39" Margin="550,308,0,0" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
