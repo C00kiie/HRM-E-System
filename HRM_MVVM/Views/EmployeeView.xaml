@@ -20,8 +20,8 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content= "Activities {posts}" HorizontalAlignment="Left" Height="60" Margin="43,224,0,0" VerticalAlignment="Top" Width="236"/>
-        <Button  x:Name="manageAttendence" Visibility="Hidden" Content="Manage Attendence" HorizontalAlignment="Left" Height="34" Margin="544,217,0,0" VerticalAlignment="Top" Width="220"/>
+        <Button Content= "Activities {CMS => not Done}" IsHitTestVisible="False" HorizontalAlignment="Left" Height="60" Margin="43,224,0,0" VerticalAlignment="Top" Width="236"/>
+        <Button Click="ManageAttendence_OnClick" x:Name="manageAttendence" Visibility="Hidden" Content="Manage Attendence" HorizontalAlignment="Left" Height="34" Margin="544,217,0,0" VerticalAlignment="Top" Width="220"/>
         <Button Click="ManageDepartments_OnClick" x:Name="manageDepartments" Visibility="hidden" Content="Manage Departments" HorizontalAlignment="Left" Height="34" Margin="550,264,0,0" VerticalAlignment="Top" Width="214"/>
 
         <Button  Click="ManageEmployees_OnClick" Visibility="Hidden" x:Name="ManageEmployees" Content="Manage Employees" HorizontalAlignment="Left" Height="60" Margin="542,123,0,0" VerticalAlignment="Top" Width="236"/>

@@ -51,6 +51,7 @@ namespace HRM_MVVM.Views
         private void RefershTasks(object sender, RoutedEventArgs e)
         {
             TasksList.Items.Clear();
+            tasksDict.Clear();
             var tasks = _vm.GetDepartmentEmployeesTasks(_employee.Department.DepartmentId);
             int i = 0;
             foreach (var task in tasks)

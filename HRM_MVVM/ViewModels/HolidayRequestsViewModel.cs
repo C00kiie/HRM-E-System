@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 using HRM_MVVM.Model;
 
 namespace HRM_MVVM.ViewModels
@@ -11,6 +14,28 @@ namespace HRM_MVVM.ViewModels
         public HolidayRequestsViewModel(HRM_DB context)
         {
             _context = context; 
+        }
+
+        public List<HolidayRequests> GetUnhandledRequests()
+        {
+            var UnhandledRequests = from temp in _context.HolidayRequests
+                where temp.ReqStatus == HolidayRequests.RequestStatus.UnHandled
+                select temp;
+            List<HolidayRequests> requests = UnhandledRequests.ToList();
+            return requests;
+        }
+        public List<HolidayRequests> getAllRequests()
+        {
+            var allRequests =  _context.HolidayRequests.ToList();
+            return allRequests;
+        }
+        public List<HolidayRequests> GetHandledRequestes()
+        {
+            var UnhandledRequests = from temp in _context.HolidayRequests
+                where temp.ReqStatus != HolidayRequests.RequestStatus.UnHandled
+                select temp;
+            List<HolidayRequests> requests = UnhandledRequests.ToList();
+            return requests;
         }
         public async void RequestHoliday(Employee employee, DateTime offDays)
         {
@@ -29,13 +54,13 @@ namespace HRM_MVVM.ViewModels
             _context.HolidayRequests.Add(request);
             await _context.SaveChangesAsync();
         }
-        public async void RequestHandling(int requestId, HolidayRequests.RequestStatus status)
+        public  void RequestHandling(int requestId, HolidayRequests.RequestStatus status)
         {
-            var request = await _context.HolidayRequests.FirstOrDefaultAsync(p => p.RequestId == requestId);
+            var request =  _context.HolidayRequests.FirstOrDefault(p => p.RequestId == requestId);
             if (request != null)
             {
                 request.ReqStatus = status;
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
         }
     }

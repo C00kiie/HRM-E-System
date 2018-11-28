@@ -23,7 +23,23 @@ namespace HRM_MVVM.ViewModels
                 ToList();
             return holidays;
         }
-        
+        public async void RequestHoliday(Employee employee, DateTime offDays)
+        {
+
+            HolidayRequests request = new HolidayRequests()
+            {
+                EmployeeId = employee.Id,
+                RequestedDay = offDays,
+                // by default this value is unhandled
+                ReqStatus = HolidayRequests.RequestStatus.UnHandled,
+
+                // this param is gonna be available once we add permissions like
+                // CanTakeHoliday perm and CanApproveHoliday perm.
+                //HolidayPermissionsLevel= employee.Permission.
+            };
+            _context.HolidayRequests.Add(request);
+            await _context.SaveChangesAsync();
+        }
         public  void RegisterAttendance(Employee employee)
         {
             GeoCoordinate coordinate = new GeoCoordinate();

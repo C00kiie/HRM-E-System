@@ -89,5 +89,12 @@ namespace HRM_MVVM.Views
             var view = new ManageDepartments(_employee,new DepartmentViewModel(_vm._context));
             view.Show();
         }
+
+        private void ManageAttendence_OnClick(object sender, RoutedEventArgs e)
+        {
+         this.Hide();
+         var view = new ManageAttendence(_employee,new HolidayRequestsViewModel(_vm._context));
+         view.Show();
+        }
     }
 }

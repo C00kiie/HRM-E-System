@@ -36,7 +36,9 @@ namespace HRM_MVVM.Views
             var holidays = _vm.GetHolidaysByThisMonth(_employee, DateTime.Now);
             foreach (var day in holidays)
             {
-                Days.Items.Add(day.RequestedDay.ToLongDateString());
+                var element = day.RequestedDay.ToLongDateString() + " | request status=> " + day.ReqStatus.ToString();
+
+                Days.Items.Add(element);
             }
         }
 
@@ -61,6 +63,19 @@ namespace HRM_MVVM.Views
             else
             {
                 this.Hide();
+            }
+        }
+
+        private void RequestHoliday(object sender, RoutedEventArgs e)
+        {
+            if (this.requested_holiday.SelectedDate != null)
+            {
+                _vm.RequestHoliday(_employee,this.requested_holiday.SelectedDate.Value);
+                MessageBox.Show("Done");
+            }
+            else
+            {
+                MessageBox.Show("Not done :<");
             }
         }
     }

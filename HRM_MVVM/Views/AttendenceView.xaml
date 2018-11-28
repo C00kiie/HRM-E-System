@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="AttendenceView" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="Days" Loaded="loadDays" HorizontalAlignment="Left" Height="289" Margin="28,43,0,0" VerticalAlignment="Top" Width="745"/>
+        <ListBox x:Name="Days" Loaded="loadDays" HorizontalAlignment="Left" Height="257" Margin="28,43,0,0" VerticalAlignment="Top" Width="745"/>
         <Button Content="back" HorizontalAlignment="Left" Height="49" Margin="21,355,0,0" VerticalAlignment="Top" Width="249" Click="back"/>
         <Button Click="LoadHolidays" Content="Holiday status" HorizontalAlignment="Left" Height="49" Margin="283,356,0,0" VerticalAlignment="Top" Width="249"/>
         <Button Click="LoadDays" Content="attended days" HorizontalAlignment="Left" Height="49" Margin="542,356,0,0" VerticalAlignment="Top" Width="249"/>
+        <Button Click="RequestHoliday" Content="Request Holiday" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="245,322,0,0" Height="25"/>
+        <DatePicker x:Name="requested_holiday"  HorizontalAlignment="Left" Margin="26,320,0,0" VerticalAlignment="Top" Height="27" Width="204"/>
     </Grid>
 </Window>

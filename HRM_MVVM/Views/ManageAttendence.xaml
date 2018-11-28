@@ -1,0 +1,26 @@
+﻿<Window x:Class="HRM_MVVM.Views.ManageAttendence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="ManageAttendence" Height="485.526" Width="800">
+    <Grid>
+        <Button Click="back" Content="back" HorizontalAlignment="Left" Height="40" Margin="18,394,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button Click="disapprove" Content="Disapprove" HorizontalAlignment="Left" Height="40" Margin="492,327,0,0" VerticalAlignment="Top" Width="102"/>
+        <Button Click="approve" Content="Approve " HorizontalAlignment="Left" Height="40" Margin="617,328,0,0" VerticalAlignment="Top" Width="110"/>
+        <ListBox x:Name="requests_list_ui" Loaded="requests_loaded" HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="761" RenderTransformOrigin="0.5,0.5" Margin="14,20,0,0" >
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.017"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Button Click="Refersh" Content="Refersh" HorizontalAlignment="Left" Height="44" Margin="598,400,0,0" VerticalAlignment="Top" Width="184"/>
+
+    </Grid>
+</Window>
