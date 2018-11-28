@@ -18,6 +18,12 @@ namespace HRM_MVVM.ViewModels
         {
             return _context.Employees.ToList();
         }
+
+        public List<Employee> GetEmployeesByDepartment(int departmentId)
+        {
+            return _context.Employees.Where(
+                p => p.Department.DepartmentId == departmentId).ToList();
+        }
         public async void AddEmployee(
             string name,
             DateTime birthDateTime,

@@ -42,9 +42,17 @@ namespace HRM_MVVM.Views.subviews
             var selected_employee_index = employeesDropList.SelectedIndex;
             var emp = employees[selected_employee_index];
 
-            if (!string.IsNullOrWhiteSpace(detailstext) && from != null && to != null && !string.IsNullOrWhiteSpace(priorityString))
+            try
             {
-                _vm.AddTask(emp.Id, prioEnumType, from, to, EmployeeTasks.Status.NotDone, detailstext);
+                if (!string.IsNullOrWhiteSpace(detailstext) && from != null && to != null && !string.IsNullOrWhiteSpace(priorityString))
+                {
+                    _vm.AddTask(emp.Id, prioEnumType, from, to, EmployeeTasks.Status.NotDone, detailstext);
+                    MessageBox.Show("Done");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("all fields are required");
             }
         }
 

@@ -20,8 +20,10 @@ namespace HRM_MVVM.Views
         // runmode = 0 => def => go back to employee view,
         // runmode = any other value = > terminate/hide
         private int runmode;
-        public ManageEmployeesView(Employee employee, ViewEmployeesViewModel vm, int runmode = 0)
+        private int _FilterByDepartment;
+        public ManageEmployeesView(Employee employee, ViewEmployeesViewModel vm, int runmode = 0, int FilterByDepartment = 0)
         {
+            this._FilterByDepartment = FilterByDepartment;
             this.runmode = runmode;
             _employee = employee;
             _vm = vm;
@@ -31,7 +33,15 @@ namespace HRM_MVVM.Views
 
         private void form_loaded(object sender, RoutedEventArgs e)
         {
-            var Employees = _vm.GetEmployees();
+            List<Employee> Employees = new List<Employee>();
+            if (this._FilterByDepartment == 0)
+            {
+                 Employees = _vm.GetEmployees();
+            }
+            else
+            {
+                Employees = _vm.GetEmployeesByDepartment(_employee.Department.DepartmentId);
+            }
             Employees.Remove(_employee);
             int i = 0;
             foreach (var employee in Employees)
@@ -47,7 +57,15 @@ namespace HRM_MVVM.Views
         private void Refersh(object sender, RoutedEventArgs e)
         {
             EmployeesList.Items.Clear();
-            var Employees = _vm.GetEmployees();
+            List<Employee> Employees = new List<Employee>();
+            if (this._FilterByDepartment == 0)
+            {
+                Employees = _vm.GetEmployees();
+            }
+            else
+            {
+                Employees = _vm.GetEmployeesByDepartment(_employee.Department.DepartmentId);
+            }
             Employees.Remove(_employee);
             int i = 0;
             foreach (var employee in Employees)

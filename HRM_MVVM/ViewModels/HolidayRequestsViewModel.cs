@@ -59,6 +59,13 @@ namespace HRM_MVVM.ViewModels
             var request =  _context.HolidayRequests.FirstOrDefault(p => p.RequestId == requestId);
             if (request != null)
             {
+                var attendance =
+                    _context.Attendances
+                        .FirstOrDefault(p => p.Day == request.RequestedDay);
+                if (attendance != null)
+                {
+                    _context.Attendances.Remove(attendance);
+                }
                 request.ReqStatus = status;
                 _context.SaveChanges();
             }

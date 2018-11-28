@@ -35,7 +35,7 @@ namespace HRM_MVVM.Views
             var index = department_list_ui.SelectedIndex;
             if (index != -1)
             {
-                var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context),1);
+                var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context),1,1);
                 view.Show();
             }
         }

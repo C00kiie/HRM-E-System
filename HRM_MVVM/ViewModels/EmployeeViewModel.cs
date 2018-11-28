@@ -32,11 +32,14 @@ namespace HRM_MVVM.ViewModels
         public  string RegisterAttendance(Employee employee)
         {
             var lastRecord = _context.Attendances.FirstOrDefault(p => p.EmployeeId == employee.Id
-                                                                      && p.Day.Day == DateTime.Now.Day);
+                                                                      && p.Day.Day == DateTime.Now.Day
+                                                                      && p.Day.Month == DateTime.Now.Month
+                                                                      && p.Day.Year == DateTime.Now.Year);
+                            
             if (lastRecord == null)
             {
-                // this func returns "Is Unknown"
-                
+
+                // lat/long are manually set for the sake of proof-of-concept
                 var attendance = new Attendance()
                 {
                     EmployeeId = employee.Id,
@@ -44,10 +47,23 @@ namespace HRM_MVVM.ViewModels
                     Lat = 4.4444,
                     Long = 4.44444
                 };
-
-                _context.Attendances.Add(attendance);
-                _context.SaveChanges();
-                return "Done";
+                var checkHoliday = _context.HolidayRequests.FirstOrDefault(
+                    p =>  p.RequestedDay.Day == DateTime.Now.Day
+                          && p.RequestedDay.Month == DateTime.Now.Month
+                          && p.RequestedDay.Year == DateTime.Now.Year
+                          && p.ReqStatus == HolidayRequests.RequestStatus.Accepted
+                         );
+                if (checkHoliday == null)
+                {
+                    _context.Attendances.Add(attendance);
+                    _context.SaveChanges();
+                    return "Done";
+                }
+                else
+                {
+                    return "You have a holiday on this day!";
+                }
+                
             }
             else
             {

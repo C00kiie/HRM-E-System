@@ -28,7 +28,7 @@
         <ComboBox x:Name="departments_list_ui" Loaded="Departments_list_ui_OnLoaded" HorizontalAlignment="Left" Height="30" Margin="23,305,0,0" VerticalAlignment="Top" Width="150"/>
         <Button x:Name="ChangeDepartment" Click="ChangeDepartment_OnClick" Content="Change Department" HorizontalAlignment="Left" Height="35" Margin="194,302,0,0" VerticalAlignment="Top" Width="140"/>
         <ComboBox x:Name="RolesList" Loaded="RolesLoaded" HorizontalAlignment="Left" Height="30" Margin="388,303,0,0" VerticalAlignment="Top" Width="150"/>
-        <Button x:Name="ChangeRole" Click="ChangeRole_OnClick" Content="Change Department" HorizontalAlignment="Left" Height="35" Margin="559,300,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="ChangeRole" Click="ChangeRole_OnClick" Content="Change Role" HorizontalAlignment="Left" Height="35" Margin="559,300,0,0" VerticalAlignment="Top" Width="140"/>
 
     </Grid>
 </Window>
