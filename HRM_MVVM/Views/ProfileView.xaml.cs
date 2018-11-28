@@ -41,10 +41,14 @@ namespace HRM_MVVM.Views
 
         private void UpdateEmployeeInfo(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Name.Text) && birthdate.SelectedDate.Value != null)
+            if (!string.IsNullOrWhiteSpace(Name.Text) && birthdate.SelectedDate.Value != null)
             {
             _vm.UpdateEmployee(_employee.Id, Name.Text.Trim(), birthdate.SelectedDate.Value);
                 MessageBox.Show("Done!");
+            }
+            else
+            {
+                MessageBox.Show("All fields are required");
             }
         }
     }

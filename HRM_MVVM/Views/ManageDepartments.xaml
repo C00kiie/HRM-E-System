@@ -9,16 +9,6 @@
     <Grid>
         <ListBox x:Name="department_list_ui" Loaded="departmentList_loaded" HorizontalAlignment="Left" Height="262" Margin="10,31,0,0" VerticalAlignment="Top" Width="773"/>
         <Button Click="back" Content="Back" HorizontalAlignment="Left" Height="43" Margin="21,358,0,0" VerticalAlignment="Top" Width="176"/>
-        <Button Click="ViewDepartmentEmployees" Content="Manage Employees" HorizontalAlignment="Left" Height="39" Margin="537,365,0,0" VerticalAlignment="Top" Width="232" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.659"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
         <Button Click="ButtonBase_OnClick" Content="Edit" HorizontalAlignment="Left" Height="38" Margin="283,362,0,0" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -32,6 +22,8 @@
         <TextBox x:Name="nametextbox" Visibility="Hidden" HorizontalAlignment="Left" Height="32" Margin="116,306,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="234"/>
         <Label x:Name="nameLabel" Visibility="Hidden" Content="new name:" HorizontalAlignment="Left" Height="34" Margin="29,304,0,0" VerticalAlignment="Top" Width="78"/>
         <Button x:Name="ChangeNameButton" Visibility="Hidden" Click="ChangeNameButton_OnClick" Content="Edit department Name" HorizontalAlignment="Left" Height="30" Margin="365,310,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button Click="CreateDepartment" Content="create a department" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="550,362,0,0" Height="40"/>
+        <Button Click="Refersh" Content="Refersh"  HorizontalAlignment="Left" Height="42" Margin="30,306,0,0" VerticalAlignment="Top" Width="168"/>
 
     </Grid>
 </Window>

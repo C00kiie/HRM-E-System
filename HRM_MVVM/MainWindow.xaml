@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Click="register_OnClick" Content="Register" HorizontalAlignment="Left" Height="89" Margin="419,130,0,0" VerticalAlignment="Top" Width="311"/>
-        <Button Click="Login_OnClick" Content="Login" HorizontalAlignment="Left" Height="89" Margin="66,133,0,0" VerticalAlignment="Top" Width="312"/>
-        <Button Click="CreateDepartment" Content="create a department" HorizontalAlignment="Left" VerticalAlignment="Top" Width="408" Margin="173,29,0,0" Height="50"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="633*"/>
+        </Grid.ColumnDefinitions>
+        <Button Click="register_OnClick" Content="Register" HorizontalAlignment="Left" Height="89" Margin="259.5,130,0,0" VerticalAlignment="Top" Width="311" Grid.Column="1"/>
+        <Button Click="Login_OnClick" Content="Login" HorizontalAlignment="Left" Height="89" Margin="66,133,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

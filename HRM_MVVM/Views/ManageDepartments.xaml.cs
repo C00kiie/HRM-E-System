@@ -52,6 +52,19 @@ namespace HRM_MVVM.Views
             }
         }
 
+        private void Refersh()
+        {
+            department_list_ui.Items.Clear();
+            Departments_list.Clear();
+            var departments = _vm.GetDepartments();
+            int i = 0;
+            foreach (var department in departments)
+            {
+                Departments_list[i] = department;
+                department_list_ui.Items.Add(department.DepartmentName);
+                i++;
+            }
+        }
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             this.nameLabel.Visibility = Visibility.Visible;
@@ -76,6 +89,26 @@ namespace HRM_MVVM.Views
                 }
             }
             
+        }
+
+        private void CreateDepartment(object sender, RoutedEventArgs e)
+        {
+            var view = new Views.newDepartment(new DepartmentViewModel(_vm._context),1);
+            view.Show();
+        }
+
+        private void Refersh(object sender, RoutedEventArgs e)
+        {
+            department_list_ui.Items.Clear();
+            Departments_list.Clear();
+            var departments = _vm.GetDepartments();
+            int i = 0;
+            foreach (var department in departments)
+            {
+                Departments_list[i] = department;
+                department_list_ui.Items.Add(department.DepartmentName);
+                i++;
+            }
         }
     }
 }

@@ -20,8 +20,10 @@ namespace HRM_MVVM.Views
     public partial class newDepartment : Window
     {
         private readonly ViewModels.DepartmentViewModel _vm;
-        public newDepartment(ViewModels.DepartmentViewModel vm)
+        private readonly int _runmode;
+        public newDepartment(ViewModels.DepartmentViewModel vm, int runmode = 0)
         {
+            this._runmode = runmode;
             _vm = vm;
             InitializeComponent();
         }
@@ -34,9 +36,16 @@ namespace HRM_MVVM.Views
 
         private void back(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            var view = new MainWindow();
-            view.Show();
+            if (this._runmode == 0)
+            {
+                this.Hide();
+                var view = new MainWindow();
+                view.Show();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

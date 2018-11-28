@@ -31,11 +31,6 @@ namespace HRM_MVVM
             view.Show();
         }
 
-        private void CreateDepartment(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            var view = new Views.newDepartment(new DepartmentViewModel(_context));
-            view.Show();
-        }
+
     }
 }

@@ -33,15 +33,8 @@ namespace HRM_MVVM.Views
 
         private void form_loaded(object sender, RoutedEventArgs e)
         {
-            List<Employee> Employees = new List<Employee>();
-            if (this._FilterByDepartment == 0)
-            {
-                 Employees = _vm.GetEmployees();
-            }
-            else
-            {
-                Employees = _vm.GetEmployeesByDepartment(_employee.Department.DepartmentId);
-            }
+            var Employees = _vm.GetEmployees();
+
             Employees.Remove(_employee);
             int i = 0;
             foreach (var employee in Employees)
@@ -56,22 +49,16 @@ namespace HRM_MVVM.Views
 
         private void Refersh(object sender, RoutedEventArgs e)
         {
-            EmployeesList.Items.Clear();
-            List<Employee> Employees = new List<Employee>();
-            if (this._FilterByDepartment == 0)
-            {
-                Employees = _vm.GetEmployees();
-            }
-            else
-            {
-                Employees = _vm.GetEmployeesByDepartment(_employee.Department.DepartmentId);
-            }
+            var Employees = _vm.GetEmployees();
+            EmployeesList.Items.Clear();            
             Employees.Remove(_employee);
             int i = 0;
             foreach (var employee in Employees)
             {
                 _EmployeeDict[i] = Employees.ElementAt(i);
-                EmployeesList.Items.Add(employee.EmployeeInfo.Name);
+                var element = employee.EmployeeInfo.Name + "| Department => " + employee.Department.DepartmentName
+                              + "| role => " + employee.type.ToString();
+                EmployeesList.Items.Add(element);
                 i++;
             }
 
