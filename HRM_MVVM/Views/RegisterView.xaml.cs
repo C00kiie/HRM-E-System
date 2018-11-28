@@ -104,13 +104,13 @@ namespace HRM_MVVM.Views
         {
             if (this.RunMode == 0)
             {
-                this.Hide();
+                this.Close();
                 var view = new MainWindow();
                 view.Show();
             }
             else
             {
-                this.Hide();
+                this.Close();
             }
         }
 

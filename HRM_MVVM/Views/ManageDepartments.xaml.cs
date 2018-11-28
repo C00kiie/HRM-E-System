@@ -25,7 +25,7 @@ namespace HRM_MVVM.Views
 
         private void back(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
             view.Show();
         }

@@ -54,13 +54,13 @@ namespace HRM_MVVM.Views
         {
             if (RunMode == 0)
             {
-                this.Hide();
+                this.Close();
                 var view = new EmployeeView(_employee,new EmployeeViewModel(_vm._context));
                 view.Show();
             }
             else
             {
-                this.Hide();
+                this.Close();
             }
         }
 

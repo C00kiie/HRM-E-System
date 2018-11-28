@@ -23,7 +23,7 @@ namespace HRM_MVVM.Views
             var state =  _vm.Login(Username.Text, Password.Text);
             if (state  == LoginViewModel.LoginCodes.SuccessfulAndActivated)
             {
-                this.Hide();
+                this.Close();
                 Employee emp = _vm.LoadEmployee(this.Username.Text);
                 var view = new EmployeeView(emp,new EmployeeViewModel(_vm._context));
                 view.Show();

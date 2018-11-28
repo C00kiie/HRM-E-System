@@ -20,28 +20,28 @@ namespace HRM_MVVM.Views
 
         private void TasksView(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new TasksView(_employee,new TasksViewModel(_vm._context));
             view.Show();
         }
 
         private void TaskManagement(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new ManageTasks(_employee, new TasksViewModel(_vm._context));
             view.Show();
         }
 
         private void logout(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new MainWindow();
             view.Show();
         }
 
         private void MyProfileView(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new ProfileView(_employee,new EmployeeViewModel(_vm._context));
             view.Show();
         }
@@ -71,28 +71,28 @@ namespace HRM_MVVM.Views
 
         private void AttendanceView(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new AttendenceView(_employee, new AttendanceViewModel(_vm._context));
             view.Show();
         }
 
         private void ManageEmployees_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new ManageEmployeesView(_employee,new ViewEmployeesViewModel(_vm._context));
             view.Show();
         }
 
         private void ManageDepartments_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             var view = new ManageDepartments(_employee,new DepartmentViewModel(_vm._context));
             view.Show();
         }
 
         private void ManageAttendence_OnClick(object sender, RoutedEventArgs e)
         {
-         this.Hide();
+         this.Close();
          var view = new ManageAttendence(_employee,new HolidayRequestsViewModel(_vm._context));
          view.Show();
         }
