@@ -23,7 +23,7 @@
         <Label x:Name="nameLabel" Visibility="Hidden" Content="new name:" HorizontalAlignment="Left" Height="34" Margin="29,304,0,0" VerticalAlignment="Top" Width="78"/>
         <Button x:Name="ChangeNameButton" Visibility="Hidden" Click="ChangeNameButton_OnClick" Content="Edit department Name" HorizontalAlignment="Left" Height="30" Margin="365,310,0,0" VerticalAlignment="Top" Width="131"/>
         <Button Click="CreateDepartment" Content="create a department" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="550,362,0,0" Height="40"/>
-        <Button Click="Refersh" Content="Refersh"  HorizontalAlignment="Left" Height="42" Margin="30,306,0,0" VerticalAlignment="Top" Width="168"/>
+        <Button Click="Refersh" Content="Refersh"  HorizontalAlignment="Left" Height="42" Margin="596,302,0,0" VerticalAlignment="Top" Width="168"/>
 
     </Grid>
 </Window>

@@ -30,7 +30,17 @@ namespace HRM_MVVM.Views
             InitializeComponent();
         }
 
-
+        private string activated(int isActivated)
+        {
+            if (isActivated == 1)
+            {
+                return "Activated";
+            }
+            else
+            {
+                return "Deactivated";
+            }
+        }
         private void form_loaded(object sender, RoutedEventArgs e)
         {
             var Employees = _vm.GetEmployees();
@@ -41,7 +51,7 @@ namespace HRM_MVVM.Views
             {
                 _EmployeeDict[i] = Employees.ElementAt(i);
                 var element = employee.EmployeeInfo.Name + "| Department => " + employee.Department.DepartmentName
-                    + "| role => " + employee.type.ToString();
+                    + "| role => " + employee.type.ToString() + "| Activation => "+ activated(employee.EmployeeLogin.IsActivated);
                 EmployeesList.Items.Add(element);
                 i++;
             }
@@ -57,7 +67,7 @@ namespace HRM_MVVM.Views
             {
                 _EmployeeDict[i] = Employees.ElementAt(i);
                 var element = employee.EmployeeInfo.Name + "| Department => " + employee.Department.DepartmentName
-                              + "| role => " + employee.type.ToString();
+                              + "| role => " + employee.type.ToString() + "| Activation => " + activated(employee.EmployeeLogin.IsActivated);
                 EmployeesList.Items.Add(element);
                 i++;
             }
@@ -184,7 +194,7 @@ namespace HRM_MVVM.Views
             {
                 _EmployeeDict[i] = Employees.ElementAt(i);
                 var element = employee.EmployeeInfo.Name + "| Department => " + employee.Department.DepartmentName
-                              + "| role => " + employee.type.ToString();
+                              + "| role => " + employee.type.ToString() + "| Activation => " + activated(employee.EmployeeLogin.IsActivated);
                 EmployeesList.Items.Add(element);
                 i++;
             }
