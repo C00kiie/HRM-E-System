@@ -2,11 +2,15 @@
 An HR-Management system targeted towards teams/tasks driven companies.
 
 How to install:
+
 1- run migrations:
      make sure to go to app.config, Change Data source to your specified MS SQL Server, 
      and then go to package-manager and run update-database.
             connectionString="Data Source=[data source (without the brackets)];Integrated Security=SSPI;database=HRM_DB_v1;" providerName="System.Data.SqlClient" />
+
 2- Compile & Run
+
+
 3- Make a department using the once-only button "Create Department", then register an employee with a manager permission,
      and assign it to the department in which you've created.
      
