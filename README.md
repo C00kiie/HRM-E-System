@@ -42,6 +42,6 @@ needs given we have a proper knowledge of the use case.
 
 Thanks to:
 * Seif Amar for being patient & understanding.
-* Ahmed Aljaf for giving his sweet social-workarea & soft-skills advices.
+* Ahmed Altaj for giving his sweet social-workarea & soft-skills advices.
 * Wael for explaining MVVM like a pro.
 
