@@ -38,7 +38,7 @@ namespace HRM_MVVM.Views
         {
             if (this._runmode == 0)
             {
-                this.Hide();
+                this.Close();
                 var view = new MainWindow();
                 view.Show();
             }

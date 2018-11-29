@@ -11,8 +11,9 @@
             <ColumnDefinition Width="160*"/>
             <ColumnDefinition Width="633*"/>
         </Grid.ColumnDefinitions>
-        <Button Click="register_OnClick" Content="Register" HorizontalAlignment="Left" Height="89" Margin="259.5,130,0,0" VerticalAlignment="Top" Width="311" Grid.Column="1"/>
+        <Button Click="register_OnClick" Content="Register" HorizontalAlignment="Left" Height="90" Margin="276,134,0,0" VerticalAlignment="Top" Width="310" Grid.Column="1"/>
         <Button Click="Login_OnClick" Content="Login" HorizontalAlignment="Left" Height="89" Margin="66,133,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
+        <Button Click="CreateDepartment" Loaded="CreateDepartment_OnLoaded" x:Name="createDepartment" Visibility="Hidden" Content="create a department" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="129,364,0,0" Height="40" Grid.Column="1"/>
 
-    </Grid>
+</Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using HRM_MVVM.Model;
 using HRM_MVVM.ViewModels;
 using HRM_MVVM.Views;
@@ -32,5 +33,21 @@ namespace HRM_MVVM
         }
 
 
+        private void CreateDepartment(object sender, RoutedEventArgs e)
+        {
+            
+            
+        var view = new newDepartment(new DepartmentViewModel(_context), 1);
+        view.Show();
+            
+        }
+
+        private void CreateDepartment_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (_context.Departments.ToList().Count == 0)
+            {
+                createDepartment.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
